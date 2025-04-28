@@ -2,14 +2,13 @@
 interface Props {
 	titlePre?: string;
 	title: string;
-	description?: string;
 	icon: string;
 	link?: string;
 }
 
 import { Icon } from 'astro-icon/components';
 
-const { icon, titlePre, title, description, link } = Astro.props as Props;
+const { icon, titlePre, title, link } = Astro.props as Props;
 ---
 
 <!-- TODO: Add prose? -->
@@ -21,7 +20,9 @@ const { icon, titlePre, title, description, link } = Astro.props as Props;
 			{title}
 		</span>
 	</h3>
-	<p class='mt-1'>{description}</p>
+	<p class='mt-1'>
+		<slot />
+	</p>
 	{
 		link && (
 			<a

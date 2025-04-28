@@ -41,3 +41,22 @@
   	/* FONT IMPORT */
 	--default-font-family: 'Source Sans 3', 'sans-serif';
 }
+
+/* DAISYUI OVERRIDES */
+.btn {
+	&:focus-visible {
+		@apply bg-transparent outline-2;
+	}
+}
+
+.btn-primary {
+	&:focus-visible {
+		@apply bg-primary border-transparent;
+	}
+}
+
+.btn-ghost {
+	&:hover {
+		@apply border-transparent bg-neutral-300;
+	}
+}

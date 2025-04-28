@@ -16,7 +16,11 @@ const { menuItems } = Astro.props;
 	{
 		menuItems.map(({ path, name, submenu }) => (
 			<li>
-				<a href={path} class='text-primary btn btn-ghost justify-start text-2xl font-normal'>
+				<a
+					href={path}
+					class='text-primary btn btn-ghost justify-start text-2xl font-normal'
+					onclick='fullscreenMenu.close()'
+				>
 					{name}
 				</a>
 				{submenu && <Astro.self menuItems={submenu} />}

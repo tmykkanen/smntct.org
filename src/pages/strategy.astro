@@ -1,0 +1,37 @@
+---
+import FeaturesContainer from '@components/FeaturesContainer.astro';
+import IconBlock from '@components/IconBlock.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroContainer from '@components/HeroContainer.astro';
+---
+
+<BaseLayout>
+	<FeaturesContainer id='strategy' headingSide='left'>
+		<!-- TODO:  Revise link styling -->
+		<Fragment slot='heading'> Our Strategy </Fragment>
+		<Fragment slot='features'>
+			<IconBlock title='Monthly Pastoral Fellowship' icon='fellowship' link='#fellowship' />
+			<IconBlock title='Summer Pastoral Internship' icon='sun' link='/internship' />
+			<IconBlock title='Pastoral Residencies' icon='learn' link='#residencies' />
+			<IconBlock title='Periodic Training Events' icon='event' link='#events' />
+		</Fragment>
+	</FeaturesContainer>
+
+	<HeroContainer id='fellowship'>
+		<Fragment slot='heading'><h2>Monthly Pastoral Fellowship</h2></Fragment>
+		<Fragment slot='body'><p>Coming Soon! <a href='#strategy'>Back to top.</a></p></Fragment>
+	</HeroContainer>
+	<HeroContainer id='internship'>
+		<Fragment slot='heading'><h2>Summer Pastoral Internships</h2></Fragment>
+		<Fragment slot='body'><p><a href='/internship'>Click here for details</a></p></Fragment>
+	</HeroContainer>
+
+	<HeroContainer id='residencies'>
+		<Fragment slot='heading'><h2>Pastoral Residencies</h2></Fragment>
+		<Fragment slot='body'><p>Coming Soon! <a href='#strategy'>Back to top.</a></p></Fragment>
+	</HeroContainer>
+	<HeroContainer id='internship'>
+		<Fragment slot='heading'><h2>Summer Pastoral Internships</h2></Fragment>
+		<Fragment slot='body'><p>Coming Soon! <a href='#strategy'>Back to top.</a></p></Fragment>
+	</HeroContainer>
+</BaseLayout>

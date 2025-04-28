@@ -18,16 +18,34 @@ const currentPath = Astro.url.pathname;
 	</div>
 
 	<!-- Branding -->
-	<div
-		id='branding'
-		class:list={[
-			'navbar-end'
-			// [currentPath === '/' && 'hidden']
-		]}
-	>
+	<div id='branding' class:list={['navbar-end', [currentPath === '/' && 'hidden']]}>
 		<a href='/' class='btn btn-ghost text-primary text-xl font-semibold'>
 			Southern MN TCT
 			<Icon name='tct_logo' class='text-primary text-4xl' />
 		</a>
 	</div>
 </header>
+
+<script define:vars={{ currentPath }}>
+	const header = document.querySelector('#page-header');
+	const branding = document.querySelector('#branding');
+	const modalBtn = document.querySelector('#modal-btn');
+	const page = document.documentElement;
+
+	if (currentPath === '/') {
+		document.addEventListener('scroll', () => {
+			const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+			if (d < 0) {
+				header.classList.replace('bg-transparent', 'bg-neutral');
+				branding.classList.remove('hidden');
+				modalBtn.classList.remove('btn-primary', '[&:not(:hover)]:opacity-50');
+				modalBtn.classList.add('text-primary', 'btn-ghost');
+			} else {
+				header.classList.replace('bg-neutral', 'bg-transparent');
+				branding.classList.add('hidden');
+				modalBtn.classList.add('btn-primary', '[&:not(:hover)]:opacity-50');
+				modalBtn.classList.remove('text-primary', 'btn-ghost');
+			}
+		});
+	}
+</script>
