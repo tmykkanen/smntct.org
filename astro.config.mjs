@@ -5,13 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 
 import icon from 'astro-icon';
 
+import lighthouse from 'astro-lighthouse';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [icon()],
+  integrations: [icon(), lighthouse()],
 
   site: 'https://smntct.org'
 });

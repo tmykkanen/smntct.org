@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import HamburgerBtn from './HamburgerBtn.astro';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+	id='page-header'
+	class:list={[
+		'navbar fixed top-0 bottom-auto z-50',
+		[currentPath === '/' ? 'bg-transparent' : 'bg-neutral']
+	]}
+>
+	<!-- Menu Button -->
+	<div class='navbar-start'>
+		<HamburgerBtn />
+	</div>
+
+	<!-- Branding -->
+	<div
+		id='branding'
+		class:list={[
+			'navbar-end'
+			// [currentPath === '/' && 'hidden']
+		]}
+	>
+		<a href='/' class='btn btn-ghost text-primary text-xl font-semibold'>
+			Southern MN TCT
+			<Icon name='tct_logo' class='text-primary text-4xl' />
+		</a>
+	</div>
+</header>

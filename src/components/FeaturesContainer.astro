@@ -1,0 +1,59 @@
+---
+import IconBlock from './IconBlock.astro';
+import Prose from './Prose.astro';
+
+interface Data {
+	titlePre: string;
+	title: string;
+	description: string;
+	icon: string;
+	link?: string;
+}
+
+interface Props {
+	id: string;
+	// data: Data[];
+	headingSide: 'left' | 'right';
+}
+
+const { id, headingSide } = Astro.props as Props;
+---
+
+<div class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center' {id}>
+	<div class='my-24 grid max-w-[90%] gap-12 md:grid-cols-2'>
+		<!-- Heading -->
+		<!-- TODO: Add Prose Wrapper? -->
+		<Prose>
+			<!-- TODO: Add animations -->
+			<div
+				class:list={[
+					'prose prose-h2:text-5xl prose-h2:font-bold z-0 flex max-w-[40ch] items-center gap-4 py-4 md:max-w-[65ch] md:justify-center md:px-4 md:text-center',
+					[headingSide === 'right' && 'order-1 md:order-2']
+				]}
+			>
+				<h2 class='text-3xl font-bold lg:text-5xl'>
+					<slot name='heading' />
+				</h2>
+			</div>
+		</Prose>
+		<!-- END Heading -->
+
+		<!-- Features -->
+		<Prose>
+			<div
+				class:list={[
+					'mx-auto my-auto max-w-[40ch] space-y-6 sm:max-w-[65ch] lg:space-y-10',
+					[headingSide === 'right' && 'order-2 md:order-1']
+				]}
+			>
+				<!-- {
+      data.map(({ titlePre, title, description, icon, link }) => {
+        <IconBlock {titlePre} {title} {description} {icon} {link} />;
+				})
+        } -->
+				<slot name='features' />
+			</div>
+		</Prose>
+		<!-- END Features -->
+	</div>
+</div>

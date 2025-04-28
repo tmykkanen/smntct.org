@@ -1,12 +1,11 @@
 ---
+import oneByTwoBorder from '@assets/1x2-00adb5ff.png';
 
+const borderImgUrl = `url(${oneByTwoBorder.src})`;
 ---
 
 <div
-  class='prose dark:prose-invert
-  prose-h1:font-bold prose-h1:text-xl
-  prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
-  prose-headings:underline'
+	class='prose prose-pre:font-light prose-pre:italic prose-pre:text-wrap prose-pre:font-sans prose-pre:text-2xl prose-pre:bg-transparent prose-p:text-2xl prose-p:font-light prose-h2:text-5xl prose-h2:font-bold prose-h1:text-5xl prose-a:no-underline prose-a:bg-[url(/src/assets/1x2-00adb5ff.png)] prose-a:bg-repeat-x prose-a:bg-[left_95%] prose-a:hover:bg-accent prose-a:hover:rounded-lg prose-pre:text-neutral-300 prose-headings:mt-0 max-w-full'
 >
-  <slot />
+	<slot />
 </div>

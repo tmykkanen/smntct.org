@@ -1,0 +1,18 @@
+---
+import { Icon } from 'astro-icon/components';
+const currentPath = Astro.url.pathname;
+---
+
+<!-- TODO: Implement modal menu -->
+<div
+	id='modal-btn'
+	tabindex='0'
+	role='button'
+	class:list={[
+		'btn rounded-lg text-2xl',
+		[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-50' : 'text-primary btn-ghost']
+	]}
+	onclick='fullscreenMenu.showModal()'
+>
+	<Icon name='line-md:align-left' />
+</div>

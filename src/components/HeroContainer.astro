@@ -1,0 +1,43 @@
+---
+import Prose from './Prose.astro';
+
+interface Props {
+	overlay?: boolean;
+	bgImg?: ImageMetadata;
+	id: string;
+}
+
+const { bgImg, id, overlay } = Astro.props as Props;
+
+const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
+---
+
+<!-- Container -->
+<div
+	class='grid min-h-screen min-w-screen place-items-center bg-cover bg-center'
+	style={{ 'background-image': bgImgUrl }}
+	{id}
+>
+	<!-- Gray Overlay div -->
+	{overlay && <div class='bg-neutral col-start-1 row-start-1 h-screen w-screen opacity-50' />}
+
+	<!-- Text Content -->
+	<div
+		class='z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 max-w-[40ch] sm:max-w-[65ch]'
+	>
+		<!-- Prose Wrapper -->
+		<Prose>
+			<!-- Overlay Overrides -->
+			<div
+				class:list={[
+					overlay &&
+						'prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] text-center'
+				]}
+			>
+				<slot name='heading' />
+				<slot name='body' />
+				<slot />
+			</div>
+		</Prose>
+	</div>
+</div>

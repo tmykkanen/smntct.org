@@ -1,0 +1,34 @@
+---
+interface menuItem {
+	path: string;
+	name: string;
+	submenu?: menuItem[];
+}
+
+interface Props {
+	menuItems: menuItem[];
+}
+
+const { menuItems } = Astro.props;
+---
+
+<ul class='menu'>
+	{
+		menuItems.map(({ path, name, submenu }) => (
+			<li>
+				<a href={path} class='text-primary btn btn-ghost justify-start text-2xl font-normal'>
+					{name}
+				</a>
+				{submenu && <Astro.self menuItems={submenu} />}
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	@reference '@styles/global.css';
+
+	li > ul a {
+		@apply text-xl;
+	}
+</style>
