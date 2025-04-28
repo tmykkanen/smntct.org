@@ -14,7 +14,7 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 
 <!-- Container -->
 <div
-	class='grid min-h-screen min-w-screen place-items-center bg-cover bg-center scroll-mt-14'
+	class='grid min-h-screen min-w-screen place-items-center bg-cover bg-center'
 	style={{ 'background-image': bgImgUrl }}
 	{id}
 >
@@ -23,7 +23,7 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 
 	<!-- Text Content -->
 	<div
-		class='z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 max-w-[40ch] sm:max-w-[65ch]'
+		class='z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 max-w-[40ch] sm:max-w-[65ch] my-24'
 	>
 		<!-- Prose Wrapper -->
 		<Prose>

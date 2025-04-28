@@ -19,10 +19,7 @@ interface Props {
 const { id, headingSide } = Astro.props as Props;
 ---
 
-<div
-	class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center scroll-mt-14'
-	{id}
->
+<div class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center' {id}>
 	<div class='my-24 grid max-w-[90%] gap-12 md:grid-cols-2'>
 		<!-- Heading -->
 		<!-- TODO: Add animations -->
