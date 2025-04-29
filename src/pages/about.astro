@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Map from '@components/Map.astro';
+
+import { churches as data } from '@data/mapData.json';
+---
+
+<BaseLayout>
+	<Map {data} fullscreen />
+</BaseLayout>
