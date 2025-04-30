@@ -1,0 +1,25 @@
+---
+import Prose from './Prose.astro';
+
+interface Props {
+	id: string;
+}
+
+const { id } = Astro.props as Props;
+---
+
+<!-- Container -->
+<div class="grid min-h-screen min-w-screen place-items-center" >
+	<!-- Text Content -->
+	<div
+		class="z-0 col-start-1 row-start-1 my-24 flex max-w-[40ch] items-center justify-center gap-4 sm:max-w-[65ch]"
+    {id}
+	>
+		<!-- Prose Wrapper -->
+		<Prose>
+			<slot name="heading" />
+			<slot name="body" />
+			<slot />
+		</Prose>
+	</div>
+</div>

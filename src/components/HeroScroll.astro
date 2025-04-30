@@ -1,0 +1,110 @@
+---
+import bgImg from '@assets/ivan-bandura-XsAz9Mq61XY-unsplash-2.jpg';
+import Prose from './Prose.astro';
+---
+
+<article class="article-header">
+	<div class="header-content prose-p:font-semibold max-w-1/2">
+		<Prose>
+			<h1 class="text-primary text-5xl">
+				Proident sint deserunt enim labore aliquip tempor proident eu quis irure nostrud.
+			</h1>
+			<p class="text-secondary text-2xl">
+				Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+				Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+				sunt. Veniam ipsum proident veniam non sit. Sit culpa cu.
+			</p>
+		</Prose>
+	</div>
+	<div class="header-image bg-neutral"></div>
+	<img src={bgImg.src} alt="alt" class="header-image opacity-50" />
+</article>
+
+<div class="min-h-full">
+	<Prose>
+		<p>
+			Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+			Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+			sunt. Veniam ipsum proident veniam non sit. Sit culpa culpa aliquip consequat cupidatat Lorem
+			pariatur proident sint. Id in aute et veniam do adipisicing quis occaecat et deserunt
+			exercitation occaecat non aliqua. Fugiat sunt veniam veniam culpa exercitation enim proident
+			mollit esse officia veniam minim elit est. Mollit adipisicing reprehenderit in dolor
+			exercitation ut id magna aliquip officia non. Nostrud nulla proident elit exercitation
+			consequat non nulla enim. Excepteur ullamco culpa voluptate tempor veniam nisi culpa anim
+			ipsum tempor.
+		</p>
+
+		<p>
+			Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+			Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+			sunt. Veniam ipsum proident veniam non sit.
+		</p>
+
+		<p>
+			Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+			Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+			sunt. Veniam ipsum proident veniam non sit.
+		</p>
+
+		<p>
+			Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+			Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+			sunt. Veniam ipsum proident veniam non sit.
+		</p>
+
+		<p>
+			Veniam ullamco veniam dolor labore ad nulla reprehenderit mollit culpa voluptate occaecat.
+			Dolore consectetur cupidatat culpa eu pariatur cupidatat enim aute ex adipisicing enim magna
+			sunt. Veniam ipsum proident veniam non sit.
+		</p>
+	</Prose>
+</div>
+
+<style>
+	.article-header {
+		display: grid;
+		place-items: center;
+		position: relative;
+		height: 100svh;
+		overflow-x: clip;
+		padding-block: 7rem;
+		margin-block-end: 3rem;
+	}
+
+	.header-content {
+		animation: fade-out linear;
+		animation-timeline: view();
+		animation-range: exit -200px;
+	}
+
+	.header-image {
+		grid-column: 1 / -1;
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+
+		animation: header-image-animation linear forwards;
+		animation-timeline: view();
+		animation-range: exit;
+	}
+
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	}
+
+	@keyframes header-image-animation {
+		25% {
+			opacity: 1;
+		}
+		85%,
+		100% {
+			opacity: 0;
+			transform: scale(2) translateY(500px);
+		}
+	}
+</style>

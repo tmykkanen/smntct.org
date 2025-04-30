@@ -1,0 +1,80 @@
+---
+import Prose from './Prose.astro';
+
+interface Props {
+	bgImg: ImageMetadata;
+	id: string;
+}
+
+const { bgImg, id } = Astro.props as Props;
+
+const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
+---
+
+<!-- TODO: https://www.youtube.com/watch?v=UmzFk68Bwdk -->
+ <!-- Container -->
+<div class="grid min-h-screen min-w-screen place-items-center bg-cover bg-center" {id}>
+	<!--  Overlay div -->
+	<div class="bg-neutral col-start-1 row-start-1 min-h-screen min-w-screen">
+		<div
+			class="fade-out col-start-1 row-start-1 min-h-screen min-w-screen bg-cover bg-center opacity-50"
+			style={{ 'background-image': bgImgUrl }}
+		>
+		</div>
+	</div>
+
+	<!-- Text Content -->
+	<div
+		class="z-0 col-start-1 row-start-1 my-24 flex max-w-[40ch] items-center justify-center gap-4 sm:max-w-[65ch]"
+	>
+		<!-- Prose Wrapper -->
+		<Prose>
+			<!-- Overlay Overrides -->
+			<div
+				class="prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] text-center"
+			>
+				<slot name="heading" />
+				<slot name="body" />
+				<slot />
+			</div>
+		</Prose>
+	</div>
+</div>
+
+<style>
+.article-header {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 100svh;
+  overflow-x: clip;
+  padding-block: 7rem;
+  margin-block-end: 3rem;
+}
+
+.header-image {
+  grid-column: 1 / -1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+	.fade-out {
+		animation: fade-out linear;
+		animation-timeline: view();
+	}
+
+	@keyframes fade-out {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>

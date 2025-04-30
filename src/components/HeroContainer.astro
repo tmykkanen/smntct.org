@@ -1,50 +1,19 @@
 ---
-import { Image } from 'astro:assets';
 import Prose from './Prose.astro';
-import { Picture } from 'astro:assets';
 
 interface Props {
-	overlay?: boolean;
-	bgImg?: ImageMetadata;
 	id: string;
 }
 
-const { bgImg, id, overlay } = Astro.props as Props;
-
-const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
+const { id } = Astro.props as Props;
 ---
 
-<!-- Container -->
-<div class="grid min-h-screen min-w-screen place-items-center bg-cover bg-center" {id}>
-	<!-- Gray Overlay div -->
-	{
-		overlay && (
-			<div class="col-start-1 row-start-1 h-screen w-screen bg-green-500">
-				<div
-					class="col-start-1 row-start-1 h-screen w-screen bg-green-50 opacity-50"
-					style={{ 'background-image': bgImgUrl }}
-				/>
-			</div>
-		)
-	}
-
-	<!-- Text Content -->
-	<div
-		class="z-0 col-start-1 row-start-1 my-24 flex max-w-[40ch] items-center justify-center gap-4 sm:max-w-[65ch]"
-	>
-		<!-- Prose Wrapper -->
-		<Prose>
-			<!-- Overlay Overrides -->
-			<div
-				class:list={[
-					overlay &&
-						'prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] text-center'
-				]}
-			>
-				<slot name="heading" />
-				<slot name="body" />
-				<slot />
-			</div>
-		</Prose>
-	</div>
+<!-- Container --><!-- Text Content -->
+<div class="mx-auto my-24 flex max-w-[40ch] items-center justify-center gap-4 sm:max-w-[65ch]" {id}>
+	<!-- Prose Wrapper -->
+	<Prose>
+		<slot name="heading" />
+		<slot name="body" />
+		<slot />
+	</Prose>
 </div>
