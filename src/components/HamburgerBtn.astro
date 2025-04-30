@@ -4,14 +4,14 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div
-	id='modal-btn'
-	tabindex='0'
-	role='button'
+	id="modal-btn"
+	tabindex="0"
+	role="button"
 	class:list={[
 		'btn rounded-lg text-2xl',
 		[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-50' : 'text-primary btn-ghost']
 	]}
-	onclick='fullscreenMenu.showModal()'
+	onclick="fullscreenMenu.showModal()"
 >
-	<Icon name='mdi:menu' />
+	<Icon name="mdi:menu" />
 </div>

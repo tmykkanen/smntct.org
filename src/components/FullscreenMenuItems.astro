@@ -12,14 +12,14 @@ interface Props {
 const { menuItems } = Astro.props;
 ---
 
-<ul class='menu'>
+<ul class="menu">
 	{
 		menuItems.map(({ path, name, submenu }) => (
 			<li>
 				<a
 					href={path}
-					class='text-primary btn btn-ghost justify-start text-2xl font-normal'
-					onclick='fullscreenMenu.close()'
+					class="text-primary btn btn-ghost justify-start text-2xl font-normal"
+					onclick="fullscreenMenu.close()"
 				>
 					{name}
 				</a>

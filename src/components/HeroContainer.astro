@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Prose from './Prose.astro';
+import { Picture } from 'astro:assets';
 
 interface Props {
 	overlay?: boolean;
@@ -13,17 +15,22 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 ---
 
 <!-- Container -->
-<div
-	class='grid min-h-screen min-w-screen place-items-center bg-cover bg-center'
-	style={{ 'background-image': bgImgUrl }}
-	{id}
->
+<div class="grid min-h-screen min-w-screen place-items-center bg-cover bg-center" {id}>
 	<!-- Gray Overlay div -->
-	{overlay && <div class='bg-neutral col-start-1 row-start-1 h-screen w-screen opacity-50' />}
+	{
+		overlay && (
+			<div class="col-start-1 row-start-1 h-screen w-screen bg-green-500">
+				<div
+					class="col-start-1 row-start-1 h-screen w-screen bg-green-50 opacity-50"
+					style={{ 'background-image': bgImgUrl }}
+				/>
+			</div>
+		)
+	}
 
 	<!-- Text Content -->
 	<div
-		class='z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 max-w-[40ch] sm:max-w-[65ch] my-24'
+		class="z-0 col-start-1 row-start-1 my-24 flex max-w-[40ch] items-center justify-center gap-4 sm:max-w-[65ch]"
 	>
 		<!-- Prose Wrapper -->
 		<Prose>
@@ -34,8 +41,8 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 						'prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] text-center'
 				]}
 			>
-				<slot name='heading' />
-				<slot name='body' />
+				<slot name="heading" />
+				<slot name="body" />
 				<slot />
 			</div>
 		</Prose>

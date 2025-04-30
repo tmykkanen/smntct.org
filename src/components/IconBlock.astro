@@ -12,22 +12,22 @@ const { icon, titlePre, title, link } = Astro.props as Props;
 ---
 
 <!-- TODO: Edit "learn more" positioning -->
-<div class='grow'>
-	<h3 class='flex text-2xl font-semibold'>
-		<Icon name={icon} class='text-accent mr-3 size-8 shrink-0' />
-		<span class='self-center'>
-			<span class='font-light text-neutral-300'>{titlePre}</span>
+<div class="grow">
+	<h3 class="flex text-2xl font-semibold">
+		<Icon name={icon} class="text-accent mr-3 size-8 shrink-0" />
+		<span class="self-center">
+			<span class="font-light text-neutral-300">{titlePre}</span>
 			{title}
 		</span>
 	</h3>
-	<p class='mt-1'>
+	<p class="mt-1">
 		<slot />
 	</p>
 	{
 		link && (
 			<a
 				href={link}
-				class='hover:bg-accent hover:text-primary bg-[url(/src/icons/1x2-00adb5ff.png)] bg-[left_95%] bg-repeat-x no-underline hover:rounded-sm'
+				class="hover:bg-accent hover:text-primary bg-[url(/src/icons/1x2-00adb5ff.png)] bg-[left_95%] bg-repeat-x no-underline hover:rounded-sm"
 			>
 				Learn More
 			</a>
