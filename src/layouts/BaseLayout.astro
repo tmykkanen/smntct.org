@@ -23,7 +23,11 @@ const homepage = Astro.url.pathname === '/' ? true : false;
 <script define:vars={{ homepage }}>
 	document.addEventListener('alpine:init', () => {
 		Alpine.store('vis', {
-			on: homepage ? false : true,
+			init() {
+				this.on = homepage ? false : true;
+			},
+
+			on: false,
 
 			toggle() {
 				this.on = !this.on;

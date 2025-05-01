@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import HamburgerBtn from './HamburgerBtn.astro';
 
 // const currentPath = Astro.url.pathname;
 
@@ -15,9 +14,17 @@ const homepage = Astro.url.pathname === '/' ? true : false;
 >
 	<!-- Menu Button -->
 	<div class="navbar-start">
-		<HamburgerBtn />
-		<!-- TODO: Fix bug for state management -->
-		<h2 class="text-5xl text-red-500">STATE: <span x-text="$store.vis.on"></span></h2>
+		<div
+			id="modal-btn"
+			tabindex="0"
+			role="button"
+			class="btn rounded-lg text-2xl"
+			x-data
+			:class="$store.vis.on ? 'text-primary btn-ghost' : 'btn-primary [&:not(:hover)]:opacity-50'"
+			onclick="fullscreenMenu.showModal()"
+		>
+			<Icon name="mdi:menu" />
+		</div>
 	</div>
 
 	<!-- Branding -->
