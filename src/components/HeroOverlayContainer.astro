@@ -14,7 +14,13 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 ---
 
 <!-- Container -->
-<div class="hero-container" {id}>
+<div
+	class="hero-container"
+	{id}
+	x-data
+	x-intersect:enter="$store.vis.on = false"
+	x-intersect:leave="$store.vis.on = true"
+>
 	<div class="hero-container-content">
 		<!-- Prose Wrapper -->
 		<Prose>

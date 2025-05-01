@@ -2,15 +2,16 @@
 import { Icon } from 'astro-icon/components';
 import HamburgerBtn from './HamburgerBtn.astro';
 
-const currentPath = Astro.url.pathname;
+// const currentPath = Astro.url.pathname;
+
+const homepage = Astro.url.pathname === '/' ? true : false;
 ---
 
 <header
 	id="page-header"
-	class:list={[
-		'navbar fixed top-0 bottom-auto z-50',
-		[currentPath === '/' ? 'bg-transparent' : 'bg-neutral']
-	]}
+	class={'navbar fixed top-0 bottom-auto z-50'}
+	x-data
+	:class="$store.vis.on ? 'bg-neutral' : 'bg-transparent'"
 >
 	<!-- Menu Button -->
 	<div class="navbar-start">
@@ -18,7 +19,7 @@ const currentPath = Astro.url.pathname;
 	</div>
 
 	<!-- Branding -->
-	<div id="branding" class:list={['navbar-end', [currentPath === '/' && 'hidden']]}>
+	<div id="branding" class="navbar-end" :class="$store.vis.on ? '' : 'hidden'">
 		<a href="/" class="btn btn-ghost text-primary text-xl font-semibold">
 			Southern MN TCT
 			<Icon name="tct_logo" class="text-primary text-4xl" />
@@ -26,7 +27,7 @@ const currentPath = Astro.url.pathname;
 	</div>
 </header>
 
-<script define:vars={{ currentPath }}>
+<!-- <script define:vars={{ currentPath }}>
 	const header = document.querySelector('#page-header');
 	const branding = document.querySelector('#branding');
 	const modalBtn = document.querySelector('#modal-btn');
@@ -48,4 +49,4 @@ const currentPath = Astro.url.pathname;
 			}
 		});
 	}
-</script>
+</script> -->

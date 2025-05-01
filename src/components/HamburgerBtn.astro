@@ -7,10 +7,9 @@ const currentPath = Astro.url.pathname;
 	id="modal-btn"
 	tabindex="0"
 	role="button"
-	class:list={[
-		'btn rounded-lg text-2xl',
-		[currentPath === '/' ? 'btn-primary [&:not(:hover)]:opacity-50' : 'text-primary btn-ghost']
-	]}
+	class="btn rounded-lg text-2xl"
+	x-data
+	:class="$store.vis.on ? 'text-primary btn-ghost' : 'btn-primary [&:not(:hover)]:opacity-50'"
 	onclick="fullscreenMenu.showModal()"
 >
 	<Icon name="mdi:menu" />

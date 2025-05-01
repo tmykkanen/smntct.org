@@ -3,6 +3,8 @@ import FullscreenMenuWrapper from '@components/FullscreenMenuWrapper.astro';
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
 import '@styles/global.css';
+
+const homepage = Astro.url.pathname === '/' ? true : false;
 ---
 
 <!-- TODO: Add view transitions / animation -->
@@ -16,3 +18,15 @@ import '@styles/global.css';
 		<slot />
 	</body>
 </html>
+
+<script define:vars={{ homepage }}>
+	document.addEventListener('alpine:init', () => {
+		Alpine.store('vis', {
+			on: homepage ? false : true,
+
+			toggle() {
+				this.on = !this.on;
+			}
+		});
+	});
+</script>
