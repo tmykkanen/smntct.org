@@ -1,5 +1,6 @@
 ---
-import Prose from './Prose.astro';
+import Prose from '@components/Prose.astro';
+import { Image } from 'astro:assets';
 
 interface Props {
 	bgImg: ImageMetadata;
@@ -13,7 +14,7 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 ---
 
 <!-- Container -->
-<div class="hero-container">
+<div class="hero-container" {id}>
 	<div class="hero-container-content">
 		<!-- Prose Wrapper -->
 		<Prose>
@@ -26,7 +27,12 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 		</Prose>
 	</div>
 	<div class="hero-container-image bg-neutral"></div>
-	<img src={bgImg.src} alt="alt" class="hero-container-image opacity-50" />
+	<!-- <img src={bgImg.src} alt="alt" class="hero-container-image opacity-50" /> -->
+	<Image
+		src={bgImg}
+		alt={'background image of a field'}
+		class={'hero-container-image opacity-50'}
+	/>
 </div>
 
 <style>
