@@ -15,11 +15,11 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 
 <!-- Container -->
 <div
-	class="hero-container"
+	class="hero-container border-2 border-yellow-200"
 	{id}
 	x-data
-	x-intersect:enter="$store.vis.on = false"
-	x-intersect:leave="$store.vis.on = true"
+	x-intersect:enter.margin.-175.0="$store.vis.on = false"
+	x-intersect:leave.margin.-175.0="$store.vis.on = true"
 >
 	<div class="hero-container-content">
 		<!-- Prose Wrapper -->
@@ -33,7 +33,6 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 		</Prose>
 	</div>
 	<div class="hero-container-image bg-neutral"></div>
-	<!-- <img src={bgImg.src} alt="alt" class="hero-container-image opacity-50" /> -->
 	<Image
 		src={bgImg}
 		alt={'background image of a field'}
@@ -51,11 +50,7 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 		padding-block: 7rem;
 		margin-block-end: 3rem;
 	}
-	.hero-container-content {
-		animation: fade-out linear;
-		animation-timeline: view();
-		animation-range: exit -200px;
-	}
+
 	.hero-container-image {
 		grid-column: 1 / -1;
 		position: absolute;
@@ -64,10 +59,19 @@ const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
 		height: 100%;
 		object-fit: cover;
 		z-index: -1;
+	}
 
-		animation: header-image-animation linear forwards;
-		animation-timeline: view();
-		animation-range: exit;
+	@supports (animation-timeline: view()) {
+		.hero-container-content {
+			animation: fade-out linear;
+			animation-timeline: view();
+			animation-range: exit -200px;
+		}
+		.hero-container-image {
+			animation: header-image-animation linear forwards;
+			animation-timeline: view();
+			animation-range: exit;
+		}
 	}
 
 	@keyframes fade-out {

@@ -16,6 +16,8 @@ const homepage = Astro.url.pathname === '/' ? true : false;
 	<!-- Menu Button -->
 	<div class="navbar-start">
 		<HamburgerBtn />
+		<!-- TODO: Fix bug for state management -->
+		<h2 class="text-5xl text-red-500">STATE: <span x-text="$store.vis.on"></span></h2>
 	</div>
 
 	<!-- Branding -->
