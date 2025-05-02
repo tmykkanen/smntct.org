@@ -8,36 +8,102 @@ interface Props {
 const { id } = Astro.props as Props;
 ---
 
-<!-- TODO: Fix bug where div jumps whenn div above is hidden -->
-
-<!-- Text Content -->
 <div
 	class="mx-auto my-58 flex max-w-[40ch] scroll-mt-24 items-center justify-center gap-4 sm:max-w-[65ch]"
 	x-data="{ show: false}"
 	x-intersect:enter.margin.-200px="show = true"
-	x-intersect:leave.margin.-200px="show = false"
+	x-intersect:leave.margin.-300px="show = false"
 	{id}
 >
 	<!-- Prose Wrapper -->
 	<Prose>
-		<div
-			x-show="show"
-			x-transition:enter="transition ease-out-quad duration-250"
-			x-transition:enter-start="-translate-x-4 opacity-20"
-			x-transition:leave="transition ease-in-quad duration-250 delay-100"
-			x-transition:leave-end="-translate-x-10 opacity-0"
-		>
+		<div :class="{'header-animation-reveal': show, 'header-animation-hide': !show}">
 			<slot name="heading" />
 		</div>
-		<div
-			x-show="show"
-			x-transition:enter="transition ease-out-quad duration-300 delay-100"
-			x-transition:enter-start="-translate-x-8 opacity-0"
-			x-transition:leave="transition ease-in-quad duration-300"
-			x-transition:leave-end="-translate-x-10 opacity-0"
-		>
+		<div :class="{'body-animation-reveal': show, 'body-animation-hide': !show}">
 			<slot name="body" />
 		</div>
 		<slot />
 	</Prose>
 </div>
+
+<style>
+	.red {
+		background-color: red;
+	}
+
+	.header-animation-reveal {
+		opacity: 0;
+		animation-name: fly-in, fade-in;
+		animation-duration: 250ms;
+		animation-delay: 0ms;
+		animation-timing-function: var(--ease-out-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -16px;
+	}
+	.header-animation-hide {
+		animation-name: fly-out, fade-out;
+		animation-duration: 250ms;
+		animation-delay: 100ms;
+		animation-timing-function: var(--ease-in-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -40px;
+	}
+
+	.body-animation-reveal {
+		opacity: 0;
+		animation-name: fly-in, fade-in;
+		animation-duration: 300ms;
+		animation-delay: 100ms;
+		animation-timing-function: var(--ease-out-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -32px;
+	}
+
+	.body-animation-hide {
+		animation-name: fly-out, fade-out;
+		animation-duration: 300ms;
+		animation-delay: 0ms;
+		animation-timing-function: var(--ease-in-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -40px;
+	}
+
+	/* @keyframes fly-in-16 {
+		from {
+			transform: translateX(-16px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+
+	@keyframes fly-in-32 {
+		from {
+			transform: translateX(-32px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes fly-out {
+		to {
+			transform: translate(-40px);
+		}
+	}
+
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	} */
+</style>
