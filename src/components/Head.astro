@@ -1,38 +1,39 @@
 ---
 const { title = 'Southern MN TCT', ...props } = Astro.props;
+import { ClientRouter } from 'astro:transitions';
 ---
 
-<link rel='sitemap' href='/sitemap-index.xml' />
+<link rel="sitemap" href="/sitemap-index.xml" />
 <title>{title}</title>
-<meta name='description' content='Website for Southern MN TCT.' />
+<meta name="description" content="Website for Southern MN TCT." />
 
 <!-- TODO: Web analytics -->
 <!-- <script data-goatcounter="https://my-account.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 
 <!-- TODO: Open Graph tags -->
-<meta property='og:title' content='Southern MN TCT' />
-<meta property='og:type' content='website' />
-<meta property='og:url' content='https://smntct.org/' />
-<meta property='og:description' content='Website for Southern MN TCT.' />
+<meta property="og:title" content="Southern MN TCT" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://smntct.org/" />
+<meta property="og:description" content="Website for Southern MN TCT." />
 <!-- <meta property="og:image" content="https://www.example.com/_astro/seo-banner.BZD7kegZ.webp"> -->
-<meta property='og:image:alt' content='' />
+<meta property="og:image:alt" content="" />
 
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width' />
-<meta name='generator' content={Astro.generator} />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
 
 <!-- TODO: favicon -->
-<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-<link rel='stylesheet' href='/styles/leaflet.css' />
-<script is:inline src='/js/leaflet.js'></script>
-<!-- <link
-	rel='stylesheet'
-	href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
-	integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY='
-	crossorigin=''
+<link rel="stylesheet" href="/styles/leaflet.css" />
+<script is:inline src="/js/leaflet.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+	rel="stylesheet"
 />
-<script
-	src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
-	integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo='
-	crossorigin=''></script> -->
+
+
+<ClientRouter />

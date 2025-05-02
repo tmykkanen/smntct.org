@@ -19,8 +19,8 @@ interface Props {
 const { id, headingSide } = Astro.props as Props;
 ---
 
-<div class='bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center' {id}>
-	<div class='my-24 grid max-w-[90%] gap-12 md:grid-cols-2'>
+<div class="bg-secondary grid min-h-screen w-full place-items-center bg-cover bg-center" {id}>
+	<div class="my-24 grid max-w-[90%] gap-12 md:grid-cols-2">
 		<!-- Heading -->
 		<!-- TODO: Add animations -->
 		<div
@@ -30,8 +30,8 @@ const { id, headingSide } = Astro.props as Props;
 			]}
 		>
 			<Prose>
-				<h2 class='text-3xl font-bold lg:text-5xl'>
-					<slot name='heading' />
+				<h2 class="text-3xl font-bold lg:text-5xl">
+					<slot name="heading" />
 				</h2>
 			</Prose>
 		</div>
@@ -40,12 +40,12 @@ const { id, headingSide } = Astro.props as Props;
 		<!-- Features -->
 		<div
 			class:list={[
-				'mx-auto my-auto max-w-[40ch] space-y-6 sm:max-w-[65ch] lg:space-y-10 prose-p:text-base prose-p:font-normal',
+				'prose-p:text-base prose-p:font-normal mx-auto my-auto max-w-[40ch] space-y-6 sm:max-w-[65ch] lg:space-y-10',
 				[headingSide === 'right' && 'order-2 md:order-1']
 			]}
 		>
 			<Prose>
-				<slot name='features' />
+				<slot name="features" />
 			</Prose>
 		</div>
 		<!-- END Features -->

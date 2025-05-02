@@ -1,0 +1,43 @@
+---
+import Prose from '@components/Prose.astro';
+
+interface Props {
+	id: string;
+}
+
+const { id } = Astro.props as Props;
+---
+
+<!-- TODO: Fix bug where div jumps whenn div above is hidden -->
+
+<!-- Text Content -->
+<div
+	class="mx-auto my-58 flex max-w-[40ch] scroll-mt-24 items-center justify-center gap-4 sm:max-w-[65ch]"
+	x-data="{ show: false}"
+	x-intersect:enter.margin.-200px="show = true"
+	x-intersect:leave.margin.-200px="show = false"
+	{id}
+>
+	<!-- Prose Wrapper -->
+	<Prose>
+		<div
+			x-show="show"
+			x-transition:enter="transition ease-out-quad duration-250"
+			x-transition:enter-start="-translate-x-4 opacity-20"
+			x-transition:leave="transition ease-in-quad duration-250 delay-100"
+			x-transition:leave-end="-translate-x-10 opacity-0"
+		>
+			<slot name="heading" />
+		</div>
+		<div
+			x-show="show"
+			x-transition:enter="transition ease-out-quad duration-300 delay-100"
+			x-transition:enter-start="-translate-x-8 opacity-0"
+			x-transition:leave="transition ease-in-quad duration-300"
+			x-transition:leave-end="-translate-x-10 opacity-0"
+		>
+			<slot name="body" />
+		</div>
+		<slot />
+	</Prose>
+</div>

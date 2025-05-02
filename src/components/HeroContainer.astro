@@ -1,43 +1,109 @@
 ---
-import Prose from './Prose.astro';
+import Prose from '@components/Prose.astro';
 
 interface Props {
-	overlay?: boolean;
-	bgImg?: ImageMetadata;
 	id: string;
 }
 
-const { bgImg, id, overlay } = Astro.props as Props;
-
-const bgImgUrl = bgImg ? `url(${bgImg.src})` : '';
+const { id } = Astro.props as Props;
 ---
 
-<!-- Container -->
 <div
-	class='grid min-h-screen min-w-screen place-items-center bg-cover bg-center'
-	style={{ 'background-image': bgImgUrl }}
+	class="mx-auto my-58 flex max-w-[40ch] scroll-mt-24 items-center justify-center gap-4 sm:max-w-[65ch]"
+	x-data="{ show: false}"
+	x-intersect:enter.margin.-200px="show = true"
+	x-intersect:leave.margin.-300px="show = false"
 	{id}
 >
-	<!-- Gray Overlay div -->
-	{overlay && <div class='bg-neutral col-start-1 row-start-1 h-screen w-screen opacity-50' />}
-
-	<!-- Text Content -->
-	<div
-		class='z-0 col-start-1 row-start-1 flex items-center justify-center gap-4 max-w-[40ch] sm:max-w-[65ch] my-24'
-	>
-		<!-- Prose Wrapper -->
-		<Prose>
-			<!-- Overlay Overrides -->
-			<div
-				class:list={[
-					overlay &&
-						'prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] text-center'
-				]}
-			>
-				<slot name='heading' />
-				<slot name='body' />
-				<slot />
-			</div>
-		</Prose>
-	</div>
+	<!-- Prose Wrapper -->
+	<Prose>
+		<div :class="{'header-animation-reveal': show, 'header-animation-hide': !show}">
+			<slot name="heading" />
+		</div>
+		<div :class="{'body-animation-reveal': show, 'body-animation-hide': !show}">
+			<slot name="body" />
+		</div>
+		<slot />
+	</Prose>
 </div>
+
+<style>
+	.red {
+		background-color: red;
+	}
+
+	.header-animation-reveal {
+		opacity: 0;
+		animation-name: fly-in, fade-in;
+		animation-duration: 250ms;
+		animation-delay: 0ms;
+		animation-timing-function: var(--ease-out-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -16px;
+	}
+	.header-animation-hide {
+		animation-name: fly-out, fade-out;
+		animation-duration: 250ms;
+		animation-delay: 100ms;
+		animation-timing-function: var(--ease-in-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -40px;
+	}
+
+	.body-animation-reveal {
+		opacity: 0;
+		animation-name: fly-in, fade-in;
+		animation-duration: 300ms;
+		animation-delay: 100ms;
+		animation-timing-function: var(--ease-out-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -32px;
+	}
+
+	.body-animation-hide {
+		animation-name: fly-out, fade-out;
+		animation-duration: 300ms;
+		animation-delay: 0ms;
+		animation-timing-function: var(--ease-in-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: -40px;
+	}
+
+	/* @keyframes fly-in-16 {
+		from {
+			transform: translateX(-16px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+
+	@keyframes fly-in-32 {
+		from {
+			transform: translateX(-32px);
+		}
+		to {
+			transform: translateX(0px);
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes fly-out {
+		to {
+			transform: translate(-40px);
+		}
+	}
+
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	} */
+</style>

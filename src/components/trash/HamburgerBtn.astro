@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components';
+const currentPath = Astro.url.pathname;
+---
+
+<div
+	id="modal-btn"
+	tabindex="0"
+	role="button"
+	class="btn rounded-lg text-2xl"
+	x-data
+	:class="$store.vis.on ? 'text-primary btn-ghost' : 'btn-primary [&:not(:hover)]:opacity-50'"
+	onclick="fullscreenMenu.showModal()"
+>
+	<Icon name="mdi:menu" />
+</div>

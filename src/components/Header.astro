@@ -1,51 +1,33 @@
 ---
 import { Icon } from 'astro-icon/components';
-import HamburgerBtn from './HamburgerBtn.astro';
-
-const currentPath = Astro.url.pathname;
 ---
 
 <header
-	id='page-header'
-	class:list={[
-		'navbar fixed top-0 bottom-auto z-50',
-		[currentPath === '/' ? 'bg-transparent' : 'bg-neutral']
-	]}
+	id="page-header"
+	class={'navbar fixed top-0 bottom-auto z-50'}
+	x-data
+	:class="$store.vis.on ? 'bg-neutral' : 'bg-transparent'"
 >
 	<!-- Menu Button -->
-	<div class='navbar-start'>
-		<HamburgerBtn />
+	<div class="navbar-start">
+		<div
+			id="modal-btn"
+			tabindex="0"
+			role="button"
+			class="btn rounded-lg text-2xl"
+			x-data
+			:class="$store.vis.on ? 'text-primary btn-ghost' : 'btn-primary [&:not(:hover)]:opacity-50'"
+			onclick="fullscreenMenu.showModal()"
+		>
+			<Icon name="mdi:menu" />
+		</div>
 	</div>
 
 	<!-- Branding -->
-	<div id='branding' class:list={['navbar-end', [currentPath === '/' && 'hidden']]}>
-		<a href='/' class='btn btn-ghost text-primary text-xl font-semibold'>
+	<div id="branding" class="navbar-end" :class="$store.vis.on ? '' : 'hidden'">
+		<a href="/" class="btn btn-ghost text-primary text-xl font-semibold">
 			Southern MN TCT
-			<Icon name='tct_logo' class='text-primary text-4xl' />
+			<Icon name="tct_logo" class="text-primary text-4xl" />
 		</a>
 	</div>
 </header>
-
-<script define:vars={{ currentPath }}>
-	const header = document.querySelector('#page-header');
-	const branding = document.querySelector('#branding');
-	const modalBtn = document.querySelector('#modal-btn');
-	const page = document.documentElement;
-
-	if (currentPath === '/') {
-		document.addEventListener('scroll', () => {
-			const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-			if (d < 0) {
-				header.classList.replace('bg-transparent', 'bg-neutral');
-				branding.classList.remove('hidden');
-				modalBtn.classList.remove('btn-primary', '[&:not(:hover)]:opacity-50');
-				modalBtn.classList.add('text-primary', 'btn-ghost');
-			} else {
-				header.classList.replace('bg-neutral', 'bg-transparent');
-				branding.classList.add('hidden');
-				modalBtn.classList.add('btn-primary', '[&:not(:hover)]:opacity-50');
-				modalBtn.classList.remove('text-primary', 'btn-ghost');
-			}
-		});
-	}
-</script>

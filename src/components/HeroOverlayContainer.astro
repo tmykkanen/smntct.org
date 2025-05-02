@@ -1,0 +1,97 @@
+---
+import Prose from '@components/Prose.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	bgImg: ImageMetadata;
+	id: string;
+}
+
+const { bgImg, id } = Astro.props as Props;
+
+// Animation inspired by https://www.youtube.com/watch?v=UmzFk68Bwdk
+---
+
+<!-- Container -->
+<div
+	class="hero-container"
+	{id}
+	x-data
+	x-intersect:enter="$store.vis.on = false"
+	x-intersect:leave="$store.vis.on = true"
+>
+	<div class="hero-container-content">
+		<!-- Prose Wrapper -->
+		<Prose>
+			<!-- Overlay Overrides -->
+			<div
+				class="prose-h1:text-primary prose-a:text-primary prose-a:bg-[url(/src/assets/1x4-00adb5ff.png)] content-animation-reveal text-center"
+			>
+				<slot name="heading" />
+			</div>
+		</Prose>
+	</div>
+	<div class="hero-container-image bg-neutral"></div>
+	<Image
+		src={bgImg}
+		alt={'background image of a field'}
+		class={'hero-container-image opacity-50'}
+	/>
+</div>
+
+<style>
+	.hero-container {
+		display: grid;
+		place-items: center;
+		position: relative;
+		height: 100svh;
+		overflow-x: clip;
+		padding-block: 7rem;
+		margin-block-end: 3rem;
+	}
+
+	.hero-container-image {
+		grid-column: 1 / -1;
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+	}
+
+	@supports (animation-timeline: view()) {
+		.hero-container-content {
+			animation: fade-out linear;
+			animation-timeline: view();
+			animation-range: exit -200px;
+		}
+		.hero-container-image {
+			animation: header-image-animation linear forwards;
+			animation-timeline: view();
+			animation-range: exit;
+		}
+		@keyframes header-image-animation {
+			25% {
+				opacity: 0.5;
+			}
+			85%,
+			100% {
+				opacity: 0;
+				transform: scale(3) translateY(0);
+			}
+		}
+	}
+
+	.content-animation-reveal {
+		opacity: 0;
+		animation-name: fly-up, blur-in;
+		animation-duration: 250ms;
+		animation-delay: 250ms;
+		animation-timing-function: var(--ease-out-quad);
+		animation-fill-mode: forwards;
+		--fly-distance: 16px;
+    --blur-amount: 8px;
+	}
+
+</style>
