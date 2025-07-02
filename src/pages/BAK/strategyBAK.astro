@@ -1,0 +1,431 @@
+---
+import Baselayout from "src/layout/Baselayout.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import fellowshipImg from "@images/smntct-fellowship.jpg";
+import internshipImg from "@images/smntct-internship.jpg";
+---
+
+<Baselayout>
+  <!-- <main x-data x-init="$store.menu = true"> -->
+  <main id="main-container" class="slyds">
+    <section class="slyd-group">
+      <div class="slyd layout-base arrow-down">
+        <ul class="mb-4 text-3xl leading-tight font-bold md:mb-5 md:text-4xl">
+          <li>
+            We gather for mothly pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              fellowship
+            </button>.
+          </li>
+          <li>
+            We host summer pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#internships').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              interns
+            </button>.
+          </li>
+
+          <li>
+            We provide extended pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#residencies').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              residencies
+            </button>.
+          </li>
+          <li>
+            We coordinate periodic training
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#events').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              events
+            </button>.
+          </li>
+        </ul>
+        <!-- <button
+          class="btn btn-ghost bounce-down text-neutral mt-8 place-self-center"
+          onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+        >
+          Find out more <Icon name="mdi:arrow-down" />
+        </button> -->
+        <!-- <Icon
+          name="mdi:arrow-down"
+          class="down-arrow text-neutral bounce-down text-4xl"
+        /> -->
+
+        <!-- <button
+          class="btn btn-ghost bounce-down down-arrow text-neutral text-4xl"
+        >
+        </button> -->
+      </div>
+      <!-- <button
+        class="text-accent bounce-down down-arrow cursor-pointer text-4xl"
+        onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+        >↓</button
+      > -->
+    </section>
+
+    <section id="fellowship" class="slyd-group">
+      <div class="slyd layout-base arrow-down">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          We gather once a month for pastoral <span class="text-accent">
+            fellowship
+          </span> and strategic planning.
+        </h2>
+        <div class="flex items-center gap-6">
+          <Image
+            src={fellowshipImg}
+            alt={"picture of smntct gathering enjoying food together"}
+            class="rounded"
+            layout="constrained"
+            width={400}
+            height={400}
+          />
+          <p class="text-neutral text-sm sm:text-base md:text-xl">
+            We meet the second Thursday of each month from 9am–11am. The
+            location varies. We often go out to lunch after.
+            <br />
+            <br />
+            Join us at our next meeting: July 10th at 9am at <a
+              href="https://www.gospeljoy.church/"
+              class="link">
+              Gospel Joy Church in Mankato
+            </a>.
+          </p>
+        </div>
+        <!-- <button
+          class="text-accent bounce-down down-arrow cursor-pointer text-4xl"
+          onclick="document.querySelector('#internships').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+          >↓</button
+        > -->
+      </div>
+    </section>
+
+    <section id="internships" class="slyd-group">
+      <div class="slyd layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Our summer <span class="text-accent">internship</span> is all about catching
+          a Gospel Imaginary.
+        </h2>
+        <div class="flex items-center gap-6">
+          <Image
+            src={internshipImg}
+            alt={"picture of intern discussion"}
+            class="rounded"
+            layout="constrained"
+            width={400}
+            height={400}
+          />
+          <p class="text-neutral text-sm sm:text-base md:text-xl">
+            We want to give you a taste of our shared convictions and help you
+            think through further ministry training and partnership in Soutnern
+            MN.
+            <br />
+            <br />
+            Interested? Scroll right to learn more.
+          </p>
+        </div>
+
+        <!-- <button
+          class="btn btn-ghost bounce-right right-arrow text-neutral text-4xl"
+        >
+          
+        </button> -->
+
+        <!-- <Icon
+          name="mdi:arrow-right"
+          class="bounce-right right-arrow text-neutral text-4xl"
+        /> -->
+        <button
+          class="text-accent bounce-down down-arrow cursor-pointer text-4xl"
+          onclick="document.querySelector('#residencies').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+          ↓
+        </button>
+      </div>
+      <button
+        class="text-accent bounce-right right-arrow row-span-3 cursor-pointer text-4xl"
+        onclick="document.querySelector('#internship-details').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+        →
+      </button>
+
+      <div class="slyd layout-base" id="internship-details">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          The summer internship is
+        </h2>
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Church-Hosted
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            A host church will provide the primary context for ministry practice
+            as the intern is immersed in the normal ministry activity (elder
+            meetings, member visits, Sunday School, small groups, membership
+            classes, prayer gatherings, preaching, hospitality, etc.). Each
+            intern will have a supervising pastor-mentor.
+          </div>
+        </div>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Cohort-Based
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            Interns will participate in a cohort spread throughout participating
+            churches. The cohort will gather weekly for discussion and
+            reflection on practical ministry topics as experienced in the local
+            church setting. At scheduled times through the summer, the cohort
+            will have extended training times together focused in four areas
+            related to the TCT Southern Minnesota Vision: (1) Persuasive
+            Preaching; (2) Intentional Ecclesiology; (3) Compelling Culture; and
+            (4) Deliberately Rural Mission.
+          </div>
+        </div>
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Fully-Funded
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            The host church will be responsible to provide housing and a stipend
+            of $4,800 for the twelve week internship. This position requires
+            approximately twenty hours per week minimum. To maximize learning,
+            interns are encouraged to participate in as local church ministry as
+            possible.
+          </div>
+        </div>
+      </div>
+      <div class="slyd layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Benefits of the summer internship
+        </h2>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Self-Assessment
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            Through the internship experiences, the intern will assess their own
+            desire and preparedness for pastoral ministry in general and for
+            ministry in normative size and small place settings in particular.
+          </div>
+        </div>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Practical Training
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            The intern will receive mentoring from a supervising pastor and
+            cohort mentor. Through guided reading, discussion, and participation
+            in essential areas of pastoral ministry, the intern will grow in
+            competence in skills essential to ministry.
+          </div>
+        </div>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            External Assessment and Affirmation
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            The local church and supervising pastor will have the opportunity to
+            assess (and Lord-willing, affirm) the intern’s gifts and calling to
+            pastoral ministry.
+          </div>
+        </div>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Participation in the Life of a Healthy Church
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            The intern will enjoy the loving support of a local church which
+            assumes the responsibility for his care and training. Through
+            participation in the weekly rhythms of the local church, the intern
+            will enjoy the encouragement of other believers as he explores his
+            calling.
+          </div>
+        </div>
+
+        <div
+          tabindex="0"
+          class="collapse-arrow bg-base-100 collapse md:pl-5 md:text-xl">
+          <div class="collapse-title text-primary-content/75 pl-0">
+            Blessing to the Local Church
+          </div>
+          <div class="collapse-content text-primary-content/50 text-base">
+            The intern and the local church will have a mutually beneficial
+            relationship. The intern will meet pastoral needs in the church and
+            the church will be blessed as they exercise hospitable welcome to
+            the intern.
+          </div>
+        </div>
+      </div>
+      <div class="slyd layout-base down-a">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">To Apply</h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Contact pastor Tyler Mykkanen (pastor at Sojourners Church in Albert
+          Lea) at 507.552.1595 or hello@smntct.org
+        </p>
+      </div>
+    </section>
+
+    <section id="residencies" class="slyd-group">
+      <div class="slyd layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          We are building extended pastoral <span class="text-accent">
+            residencies
+          </span>.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Stay in the loop by emailing us at <a
+            href="mailto:hello@smntct.org"
+            class="link">
+            hello@smntct.org
+          </a>
+        </p>
+        <button
+          class="text-accent bounce-down down-arrow cursor-pointer text-4xl"
+          onclick="document.querySelector('#events').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+          ↓
+        </button>
+      </div>
+    </section>
+    <section id="events" class="slyd-group">
+      <div class="slyd layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          In the future, we hope to host periodic training <span
+            class="text-accent">
+            events
+          </span>.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Stay in the loop by emailing us at <a
+            href="mailto:hello@smntct.org"
+            class="link">
+            hello@smntct.org
+          </a>
+        </p>
+        <!-- TODO: ADD "to the top" button -->
+      </div>
+    </section>
+  </main>
+</Baselayout>
+
+<!-- 
+
+  main {
+    min-block-size: 100vh;
+    display: grid;
+    place-content: center;
+  }
+  section {
+    min-block-size: 100vh;
+    display: grid;
+    align-content: center;
+    scroll-snap-stop: always;
+    scroll-snap-align: start;
+  }
+
+-->
+
+<style>
+  /* TODO: Use slyd style for whole site */
+
+  .slyds {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    display: grid;
+    grid-auto-rows: 100vh;
+    grid-auto-flow: row;
+    grid-template-columns: 100vw;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    width: 100vw;
+
+    & > * {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+  }
+
+  .slyd-group {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100vw;
+    position: relative;
+    scroll-snap-type: x mandatory;
+
+    & > * {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+  }
+
+  .slyd {
+    background-position: 50%;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    /* text-align: center; */
+    width: 100vw;
+    align-content: center;
+  }
+
+  .down-arrow {
+    position: absolute;
+    bottom: 2vh;
+    /* left: calc(-0.5em + 50vw); */
+    left: calc(-0.5em + 50%);
+  }
+
+  .right-arrow {
+    position: absolute;
+    bottom: calc(-0.5em + 50vh);
+    /* bottom: calc(-0.5em + 50%); */
+    right: 2vw;
+  }
+
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+
+  .hover-underline-animation::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+</style>

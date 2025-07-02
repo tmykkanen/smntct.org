@@ -1,0 +1,233 @@
+---
+import { Icon } from "astro-icon/components";
+import Image from "astro/components/Image.astro";
+import bgImg from "@images/ivan-bandura-XsAz9Mq61XY-unsplash.jpg";
+import Baselayout from "src/layout/Baselayout.astro";
+
+const imgUrl = `url(${bgImg?.src})`;
+---
+
+<Baselayout>
+  <main class="layout-base snap-y snap-proximity" x-data>
+    <h1 class="sr-only">Southern MN TCT</h1>
+
+    <!-- HERO -->
+    <section
+      class="hero full-width min-h-screen snap-start snap-always bg-[url:var(--img-url)]"
+      style={{ "--img-url": imgUrl }}>
+      <div class="hero-overlay bg-secondary-darker opacity-85"></div>
+      <div class="layout-base arrow-down isolate">
+        <h2
+          class="xs:text-4xl text-3xl leading-tight font-bold uppercase md:text-5xl xl:text-6xl">
+          Filling Southern MN with healthy churches <span class="text-accent">
+            for the next 100 years.
+          </span>
+        </h2>
+        <!-- <button
+          class="btn btn-ghost bounce-down hover:bg-secondary hover:border-secondary mt-8 place-self-center"
+          onclick="document.querySelector('#unstrategic').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+        >
+          Find out more <Icon name="mdi:arrow-down" />
+        </button> -->
+        <!-- <button
+          class="text-accent bounce-down down-arrow cursor-pointer text-4xl"
+          onclick="document.querySelector('#unstrategic').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+          >↓</button
+        > -->
+      </div>
+    </section>
+    <!-- END HERO -->
+
+    <section
+      id="unstrategic"
+      class="arrow-down grid min-h-screen snap-start snap-always place-content-center">
+      <div class="relative">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Jesus is decidedly unstrategic.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          He came to the sound of angels singing and then spent the next thirty
+          years learning carpentry. Even during his public ministry, he spent
+          most of his time going at a slow pace in a small place. This is
+          unstrategic not because there was no plan, but because the plan
+          doesn’t make sense! Yet the madness of this plan is exactly how God
+          chose to display the upside-down nature of his Kingdom. Jesus won by
+          dying. Jesus chose two women to witness the resurrection. Jesus built
+          his church on the preaching of one of his betrayers. Jesus' plan is
+          beautiful—but mad. <span class="text-accent">
+            Trusting him takes imagination.
+          </span>
+          <!-- <button
+              class="text-accent small-bounce-down cursor-pointer"
+              onclick="document.querySelector('#imagination').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+            >
+              Trusting him takes imagination.
+              <Icon name="mdi:arrow-down" class="inline" />
+            </button> -->
+        </p>
+      </div>
+      <!-- <button
+        class="text-accent bounce-down cursor-pointer text-4xl"
+        onclick="document.querySelector('#imagination').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+        >↓</button
+      > -->
+    </section>
+
+    <section
+      id="imagination"
+      class="nav-arrow-container grid min-h-screen snap-start snap-always place-content-center">
+      <div class="nav-arrow-container-content">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Many view rural ministry as unstrategic.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Yet we believe rural ministry presents a unique opportunity to display
+          the very upside-down gospel we proclaim. Going at a slow pace in a
+          small place as we win by dying embodies the gospel logic of John
+          12:24: “Truly, truly, I say to you, unless a grain of wheat falls into
+          the earth and dies, it remains alone; but if it dies, it bears much
+          fruit." The slowness and smallness of this kind of ministry requires a
+          certain kind of gospel imaginary from those who pastor here. It’s the
+          kind of imaginary Wendell Berry calls for in his poem Manifesto: The
+          Mad Farmer Liberation Front:
+        </p>
+        <pre
+          class="text-base-content/75 py-4 font-sans text-sm sm:text-base md:p-5 md:text-xl">So, friends, every day do something
+        that won’t compute....
+        Invest in the millennium. Plant sequoias.
+        Say that your main crop is the forest
+        that you did not plant,
+        that you will not live to harvest.</pre>
+        <p class="text-neutral md:text-xl">
+          We’ve caught this madness. And out of this gospel madness <span
+            class="text-accent">
+            flows our 100 year vision.
+          </span>
+
+          <!-- <button
+            class="text-accent small-bounce-down cursor-pointer"
+            onclick="document.querySelector('#vision').scrollIntoView({behavior: 'smooth', inline: 'center'})"
+          >
+            <Icon name="mdi:arrow-down" class="inline" />
+          </button> -->
+        </p>
+      </div>
+      <button
+        class="text-accent bounce-down cursor-pointer text-4xl"
+        onclick="document.querySelector('#vision').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+        ↓
+      </button>
+    </section>
+
+    <!-- x-intersect controls display of menu -->
+    <section
+      x-intersect:enter.half="$store.menu = true"
+      x-intersect:leave.half="$store.menu = false"
+      id="vision"
+      class="grid min-h-screen snap-start snap-always scroll-mt-12 place-content-center sm:scroll-mt-0">
+      <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        Over the next 100 years, we aim to start and strengthen churches in
+        Southern MN that share a <span class="text-accent">
+          Gospel Imaginary.
+        </span>
+      </h2>
+
+      <!-- <p class="text-neutral text-sm sm:text-base md:text-xl">
+        Yet we believe rural ministry presents a unique opportunity to display
+      </p> -->
+
+      <!-- TODO: Add paragraph descriptions of vision points -->
+      <div tabindex="0" class="collapse-arrow bg-base-100 collapse md:pl-5">
+        <div
+          class="collapse-title text-primary-content/75 pl-0 text-sm sm:text-base md:text-xl">
+          shaped by <span class="text-primary-content font-bold">
+            Big God Theology
+          </span>
+        </div>
+        <div
+          class="collapse-content text-neutral text-xs sm:text-sm md:text-base">
+          This is a paragraph explaination of Big God theology. Aliqua
+          adipisicing exercitation ut esse fugiat eu ad nulla labore eu officia
+          nostrud cillum. Sit deserunt ut non voluptate anim ipsum veniam.
+          Voluptate quis ullamco dolore aliquip irure elit consequat proident
+          reprehenderit ullamco deserunt eiusmod ex laborum. Consectetur qui in
+          nostrud laboris aliqua. Est ut aliquip aliquip ex. Fugiat culpa quis
+          irure labore sint ea eu incididunt cillum irure ullamco mollit.
+        </div>
+      </div>
+
+      <div tabindex="0" class="collapse-arrow bg-base-100 collapse md:pl-5">
+        <div
+          class="collapse-title text-primary-content/75 pl-0 text-sm sm:text-base md:text-xl">
+          proclaimed by <span class="text-primary-content font-bold">
+            Persuasive Preaching
+          </span>
+        </div>
+        <div
+          class="collapse-content text-neutral text-xs sm:text-sm md:text-base">
+          This is a paragraph explaination of Persuasive Preaching. Aliqua
+          mollit nostrud magna exercitation. Pariatur esse amet pariatur
+          deserunt sit quis. Exercitation aliquip commodo aliquip tempor ut
+          adipisicing nulla nisi non et veniam sint. Elit et reprehenderit dolor
+          nisi veniam aliquip do cillum dolor culpa. Ad commodo minim ex
+          consequat do reprehenderit laborum duis tempor mollit voluptate
+          consectetur.
+        </div>
+      </div>
+
+      <div tabindex="0" class="collapse-arrow bg-base-100 collapse md:pl-5">
+        <div
+          class="collapse-title text-primary-content/75 pl-0 text-sm sm:text-base md:text-xl">
+          portrayed through <span class="text-primary-content font-bold">
+            Intentional Ecclesiology
+          </span>
+        </div>
+        <div
+          class="collapse-content text-neutral text-xs sm:text-sm md:text-base">
+          This is a paragraph explaination of Intentional Ecclesiology. Occaecat
+          excepteur laboris ea anim quis elit dolore labore ea excepteur enim
+          irure aliquip nisi. Est velit voluptate amet adipisicing aliquip
+          labore fugiat commodo non. Ipsum mollit elit consectetur est aliquip
+          occaecat in nulla.
+        </div>
+      </div>
+
+      <div tabindex="0" class="collapse-arrow bg-base-100 collapse md:pl-5">
+        <div
+          class="collapse-title text-primary-content/75 pl-0 text-sm sm:text-base md:text-xl">
+          experienced as <span class="text-primary-content font-bold">
+            Compelling Culture
+          </span>
+        </div>
+        <div
+          class="collapse-content text-neutral text-xs sm:text-sm md:text-base">
+          This is a paragraph explaination of Compelling Culture. Sit labore
+          consequat voluptate ut duis excepteur laboris laborum dolor fugiat. Ut
+          laborum eu culpa ea reprehenderit quis. Incididunt magna esse ipsum
+          aliqua nulla non amet. Dolore voluptate nostrud est ut ullamco. Anim
+          non in adipisicing ad sunt officia proident esse aute enim irure et.
+          Pariatur qui aliqua irure sunt consequat cillum ut Lorem aliquip.
+        </div>
+      </div>
+
+      <div tabindex="0" class="collapse-arrow bg-base-100 collapse md:pl-5">
+        <div
+          class="collapse-title text-primary-content/75 pl-0 text-sm sm:text-base md:text-xl">
+          spread through <span class="text-primary-content font-bold">
+            Deliberately Rural Mission
+          </span>
+        </div>
+        <div
+          class="collapse-content text-neutral text-xs sm:text-sm md:text-base">
+          This is a paragraph explaination of Deliberately Rural Mission.
+          Incididunt dolore reprehenderit ex labore anim laboris dolore ullamco
+          et consectetur et nostrud veniam. Aute cillum eiusmod consectetur
+          nulla esse mollit non commodo dolore qui commodo. Pariatur ad officia
+          cupidatat magna cupidatat culpa officia non. Ut incididunt enim esse
+          ullamco commodo voluptate. Aute sint labore labore ipsum do Lorem duis
+          eu ad.
+        </div>
+      </div>
+    </section>
+  </main>
+</Baselayout>

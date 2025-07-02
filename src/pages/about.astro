@@ -1,0 +1,87 @@
+---
+import Baselayout from "src/layout/Baselayout.astro";
+import NavMenu from "@components/NavMenu.astro";
+
+import SlydsContainer from "@components/Slyds/SlydsContainer.astro";
+import SlydGroup from "@components/Slyds/SlydGroup.astro";
+import Slyd from "@components/Slyds/Slyd.astro";
+
+import Map from "@components/Map.astro";
+import data from "../data/mapData";
+
+// Sort churches alphabetically by name
+data.sort((a, b) => {
+  const nameA = a.name.toUpperCase();
+  const nameB = b.name.toUpperCase();
+
+  if (nameA < nameB) return -1;
+  if (nameA > nameB) return 1;
+  return 0;
+});
+---
+
+<Baselayout>
+  <NavMenu />
+
+  <SlydsContainer>
+    <h1 class="sr-only">About Us</h1>
+    <SlydGroup>
+      <Slyd class="arrow-down layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          We are <span class="text-accent">
+            a group of like-minded churches in southern MN
+          </span> partnering together to start and strengthen other like-minded churches
+          in southern MN.
+        </h2>
+        <!-- <button
+          class="btn btn-ghost bounce-down text-neutral mt-8 place-self-center"
+          onclick="document.querySelector('#churches').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+          Churches <Icon name="mdi:arrow-down" />
+        </button> -->
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup>
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold @3xl/main:mb-5 @3xl/main:text-4xl">
+          Churches
+        </h2>
+        <Map {data} />
+        <ul class="mt-6">
+          {
+            data.map(({ url, name, city }) => (
+              <li>
+                <a href={url} class="link">
+                  {name} ({city})
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup>
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold @3xl/main:mb-5 @3xl/main:text-4xl">
+          Friends & Partners
+        </h2>
+        <ul>
+          <li>
+            <a class="link" href="https://tctnetwork.org/">
+              Treasuring Christ Together Network
+            </a>
+          </li>
+          <li>
+            <a class="link" href="https://www.smnba.org/">
+              Southern MN Baptist Association
+            </a>
+          </li>
+          <li>
+            <a class="link" href="https://bcsmn.edu/">
+              Bethlehem College and Seminary
+            </a>
+          </li>
+        </ul>
+      </Slyd>
+    </SlydGroup>
+  </SlydsContainer>
+</Baselayout>

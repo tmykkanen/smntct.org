@@ -1,0 +1,249 @@
+---
+import Slyd from "@components/Slyds/Slyd.astro";
+import SlydGroup from "@components/Slyds/SlydGroup.astro";
+import SlydsContainer from "@components/Slyds/SlydsContainer.astro";
+import Baselayout from "src/layout/Baselayout.astro";
+
+import { Image } from "astro:assets";
+import fellowshipImg from "@images/smntct-fellowship.jpg";
+import internshipImg from "@images/smntct-internship.jpg";
+import Accordion from "@components/Accordion.astro";
+import NavMenu from "@components/NavMenu.astro";
+---
+
+<Baselayout>
+  <NavMenu />
+
+  <SlydsContainer>
+    <SlydGroup>
+      <Slyd class="layout-base arrow-down">
+        <ul class="mb-4 text-3xl leading-tight font-bold md:mb-5 md:text-4xl">
+          <li>
+            We gather for mothly pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              fellowship
+            </button>.
+          </li>
+          <li>
+            We host summer pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#internships').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              interns
+            </button>.
+          </li>
+
+          <li>
+            We provide extended pastoral
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#residencies').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              residencies
+            </button>.
+          </li>
+          <li>
+            We coordinate periodic training
+            <button
+              class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
+              onclick="document.querySelector('#events').scrollIntoView({behavior: 'smooth', inline: 'center'})">
+              events
+            </button>.
+          </li>
+        </ul>
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup id="fellowship">
+      <Slyd class="layout-base arrow-down">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          We gather once a month for pastoral <span class="text-accent">
+            fellowship
+          </span> and strategic planning.
+        </h2>
+        <div class="flex items-center gap-6">
+          <Image
+            src={fellowshipImg}
+            alt={"picture of smntct gathering enjoying food together"}
+            class="rounded"
+            layout="constrained"
+            width={400}
+            height={400}
+          />
+          <p class="text-neutral text-sm sm:text-base md:text-xl">
+            We meet the second Thursday of each month from 9am–11am. The
+            location varies. We often go out to lunch after.
+            <br />
+            <br />
+            Join us at our next meeting: July 10th at 9am at <a
+              href="https://www.gospeljoy.church/"
+              class="link">
+              Gospel Joy Church in Mankato
+            </a>.
+          </p>
+        </div>
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup id="internships">
+      <Slyd class="layout-base arrow-down arrow-right">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Our summer <span class="text-accent">internship</span> is all about catching
+          a Gospel Imaginary.
+        </h2>
+        <div class="flex items-center gap-6">
+          <Image
+            src={internshipImg}
+            alt={"picture of intern discussion"}
+            class="rounded"
+            layout="constrained"
+            width={400}
+            height={400}
+          />
+          <p class="text-neutral text-sm sm:text-base md:text-xl">
+            We want to give you a taste of our shared convictions and help you
+            think through further ministry training and partnership in Soutnern
+            MN.
+            <br />
+            <br />
+            Interested? Scroll right to learn more.
+          </p>
+        </div>
+      </Slyd>
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          The summer internship is
+        </h2>
+
+        <Accordion>
+          <h3 slot="title">Church-Hosted</h3>
+          <p slot="content">
+            A host church will provide the primary context for ministry practice
+            as the intern is immersed in the normal ministry activity (elder
+            meetings, member visits, Sunday School, small groups, membership
+            classes, prayer gatherings, preaching, hospitality, etc.). Each
+            intern will have a supervising pastor-mentor.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">Cohort-Based</h3>
+          <p slot="content">
+            Interns will participate in a cohort spread throughout participating
+            churches. The cohort will gather weekly for discussion and
+            reflection on practical ministry topics as experienced in the local
+            church setting. At scheduled times through the summer, the cohort
+            will have extended training times together focused in four areas
+            related to the TCT Southern Minnesota Vision: (1) Persuasive
+            Preaching; (2) Intentional Ecclesiology; (3) Compelling Culture; and
+            (4) Deliberately Rural Mission.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">Fully-Funded</h3>
+          <p slot="content">
+            The host church will be responsible to provide housing and a stipend
+            of $4,800 for the twelve week internship. This position requires
+            approximately twenty hours per week minimum. To maximize learning,
+            interns are encouraged to participate in as local church ministry as
+            possible.
+          </p>
+        </Accordion>
+      </Slyd>
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          Benefits of the summer internship
+        </h2>
+
+        <Accordion>
+          <h3 slot="title">Self-Assessment</h3>
+          <p slot="content">
+            Through the internship experiences, the intern will assess their own
+            desire and preparedness for pastoral ministry in general and for
+            ministry in normative size and small place settings in particular.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">Practical Training</h3>
+          <p slot="content">
+            The intern will receive mentoring from a supervising pastor and
+            cohort mentor. Through guided reading, discussion, and participation
+            in essential areas of pastoral ministry, the intern will grow in
+            competence in skills essential to ministry.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">External Assessment and Affirmation</h3>
+          <p slot="content">
+            The local church and supervising pastor will have the opportunity to
+            assess (and Lord-willing, affirm) the intern’s gifts and calling to
+            pastoral ministry.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">Participation in the Life of a Healthy Church</h3>
+          <p slot="content">
+            The intern will enjoy the loving support of a local church which
+            assumes the responsibility for his care and training. Through
+            participation in the weekly rhythms of the local church, the intern
+            will enjoy the encouragement of other believers as he explores his
+            calling.
+          </p>
+        </Accordion>
+
+        <Accordion>
+          <h3 slot="title">Blessing to the Local Church</h3>
+          <p slot="content">
+            The intern and the local church will have a mutually beneficial
+            relationship. The intern will meet pastoral needs in the church and
+            the church will be blessed as they exercise hospitable welcome to
+            the intern.
+          </p>
+        </Accordion>
+      </Slyd>
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">To Apply</h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Contact pastor Tyler Mykkanen (pastor at Sojourners Church in Albert
+          Lea) at 507.552.1595 or hello@smntct.org
+        </p>
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup id="residencies">
+      <Slyd class="layout-base arrow-down">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          We are building extended pastoral <span class="text-accent">
+            residencies
+          </span>.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Stay in the loop by emailing us at <a
+            href="mailto:hello@smntct.org"
+            class="link">
+            hello@smntct.org
+          </a>
+        </p>
+      </Slyd>
+    </SlydGroup>
+    <SlydGroup id="events">
+      <Slyd class="layout-base">
+        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+          In the future, we hope to host periodic training <span
+            class="text-accent">
+            events
+          </span>.
+        </h2>
+        <p class="text-neutral text-sm sm:text-base md:text-xl">
+          Stay in the loop by emailing us at <a
+            href="mailto:hello@smntct.org"
+            class="link">
+            hello@smntct.org
+          </a>
+        </p>
+      </Slyd>
+    </SlydGroup>
+  </SlydsContainer>
+</Baselayout>

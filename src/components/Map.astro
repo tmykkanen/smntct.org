@@ -1,0 +1,91 @@
+---
+interface Props {
+  data: Object[];
+  fullscreen?: boolean;
+}
+
+const { data, fullscreen = false } = Astro.props;
+
+let mapHeight = fullscreen ? "100%" : "70%";
+---
+
+<div
+  id="hs-grayscale-leaflet"
+  class="hs-leaflet z-10 m-auto h-[var(--map-height)]"
+  style={{ "--map-height": mapHeight }}
+  data-markers={JSON.stringify(data)}>
+</div>
+
+<script>
+  const map = L.map("hs-grayscale-leaflet", {
+    center: [44.05937461400064, -93.38859819147521],
+    zoom: 9,
+  });
+
+  L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    {
+      maxZoom: 19,
+      minZoom: 2,
+      attribution: '© <a href="https://carto.com/attributions">CARTO</a>',
+    },
+  ).addTo(map);
+
+  function createPopupContent({
+    name,
+    pastor,
+    email,
+    url,
+  }: {
+    name: string;
+    pastor: string;
+    email: string;
+    url: string;
+  }) {
+    return `
+        <div>
+          <h2 class='text-lg'>${name}</h2>
+          <p>${pastor}</p>
+          <p><a href='mailto:${email}'>${email}</a></p>
+          <p><a href='${url}'>Website</a></p>
+          </div>
+        `;
+  }
+
+  let dataString = document.getElementById("hs-grayscale-leaflet")!.dataset
+    .markers;
+
+  interface DataItem {
+    name: string;
+    city: string;
+    coords: [];
+    pastor: string;
+    email: string;
+    url: string;
+  }
+
+  let data;
+  if (dataString) {
+    data = JSON.parse(dataString) as DataItem[];
+  }
+
+  if (data) {
+    data.forEach((item) => {
+      L.marker(item.coords).bindPopup(createPopupContent(item)).addTo(map);
+    });
+  }
+
+  let width = document.documentElement.clientWidth;
+  if (width < 768) {
+    map.setZoom(8);
+  } else {
+    map.setZoom(9);
+  }
+</script>
+
+<style>
+  #hs-grayscale-leaflet {
+    height: 32rem;
+    width: 100%;
+  }
+</style>

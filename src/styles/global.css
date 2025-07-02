@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "greenwilder_v2";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(0.2265 0.0156 244.41);
+  --color-base-200: oklch(0.2065 0.0156 244.41);
+  --color-base-300: oklch(0.1565 0.0156 244.41);
+  --color-base-content: oklch(0.8927 0.0325 136.64);
+  --color-primary: oklch(0.357 0.0547 209.73);
+  --color-primary-content: oklch(0.8927 0.0325 136.64);
+  --color-secondary: oklch(0.3525 0.0587 172.72);
+  --color-secondary-content: oklch(0.8927 0.0325 136.64);
+  --color-accent: oklch(0.6639 0.1763 43.58);
+  --color-accent-content: oklch(0.2265 0.0156 244.41);
+  --color-neutral: oklch(0.6065 0.0534 179.58);
+  --color-neutral-content: oklch(0.2265 0.0156 244.41);
+  --color-info: oklch(78% 0.154 211.53);
+  --color-info-content: oklch(30% 0.056 229.695);
+  --color-success: oklch(79% 0.209 151.711);
+  --color-success-content: oklch(26% 0.065 152.934);
+  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 0.25rem;
+  --radius-field: 2rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --font-sans: Poppins, sans-serif;
+  /* 375 - super small iphone */
+  --breakpoint-xs: 24rem; /* 384px */
+  /* 390 - iphone 12 - 393 - iphone 16 */
+  /* 428 - iphone 12 pro max - 430 - iphone 14 pro max - 440 iphone 16 pro max */
+  --breakpoint-sm: 30rem; /* 480px */
+
+  /* md - 48rem - 768px */
+  --text-xxs: 0.6875rem; /* 10pt */
+
+  --color-secondary-darker: oklch(0.3125 0.0587 172.72);
+}
+
+/* Variant Example */
+/* TODO: Cleanup */
+.yellow {
+  background-color: yellow;
+  @variant lg {
+    background-color: red;
+  }
+}
+
+@utility layout-base {
+  --max-width: 80ch;
+  --padding: 36px;
+
+  display: grid;
+  place-content: center;
+  grid-template-columns:
+    minmax(var(--padding), 1fr)
+    min(var(--max-width), 100% - var(--padding) * 2)
+    minmax(var(--padding), 1fr);
+
+  & > * {
+    grid-column: 2/3;
+  }
+
+  & > .full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+.base-layout {
+  --max-width: 80ch;
+  --padding: 36px;
+
+  display: grid;
+  place-content: center;
+  grid-template-columns:
+    minmax(var(--padding), 1fr)
+    min(var(--max-width), 100% - var(--padding) * 2)
+    minmax(var(--padding), 1fr);
+
+  & > * {
+    grid-column: 2/3;
+  }
+
+  & > .full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+/* NAV ARROWS */
+.arrow-down::before {
+  content: "↓";
+  position: absolute;
+  bottom: 2vh;
+  left: calc(-0.5em + 50vw);
+  color: var(--color-accent);
+  font-size: 2rem;
+  animation: 2s ease-in-out 0s infinite normal none running bounce-down;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 4vh;
+  left: calc(-0.5em + 50vw);
+}
+
+.arrow-right::after {
+  content: "→";
+  position: absolute;
+  bottom: calc(-0.5em + 50vh);
+  right: 2vw;
+  color: var(--color-accent);
+  font-size: 2rem;
+  animation: 2s ease-in-out 0s infinite normal none running bounce-right;
+}
+
+.nav-arrow-container {
+  grid-template-rows: 1fr 100px;
+
+  & > .nav-arrow-container-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  & > .down-arrow {
+    position: absolute;
+    bottom: 4vh;
+    left: calc(-0.5em + 50vw);
+  }
+  & > .right-arrow {
+    position: absolute;
+    bottom: calc(-0.5em + 50vh);
+    right: 2vw;
+  }
+}
+
+/* ANIMATIONS */
+.bounce-down {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+@keyframes bounce-down {
+  50% {
+    transform: translateY(1vmax);
+  }
+}
+
+.bounce-right {
+  animation: bounce-right 2s ease-in-out infinite;
+}
+
+@keyframes bounce-right {
+  50% {
+    transform: translateX(1vmax);
+  }
+}
+
+.small-bounce-down {
+  animation: small-bounce-down 1.5s ease-in-out infinite;
+}
+
+@keyframes small-bounce-down {
+  50% {
+    transform: translateY(0.25vmax);
+  }
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
