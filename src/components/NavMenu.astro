@@ -39,9 +39,10 @@ if (path === "/") {
         href="/strategy"
         class:list={[
           "hover:text-neutral hover-underline-animation",
-          path === "/strategy" && "text-neutral active-accent",
+          (path === "/strategy/" || path === "/strategy") &&
+            "text-neutral active-accent",
         ]}>
-        Our Strategy - {path}
+        Our Strategy
       </a>
       <!-- <ul class:list={["mt-6 ml-6", path === "/strategy" ? "" : "hidden"]}>
         <li>
@@ -79,7 +80,8 @@ if (path === "/") {
         href="/about"
         class:list={[
           "hover:text-neutral hover-underline-animation",
-          path === "/about" && "text-neutral active-accent",
+          (path === "/about/" || path === "/about") &&
+            "text-neutral active-accent",
         ]}>
         Who we Are
       </a>
