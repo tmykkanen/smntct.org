@@ -111,12 +111,6 @@
   animation: 2s ease-in-out 0s infinite normal none running bounce-down;
 }
 
-.down-arrow {
-  position: absolute;
-  bottom: 4vh;
-  left: calc(-0.5em + 50vw);
-}
-
 .arrow-right::after {
   content: "→";
   position: absolute;
@@ -127,25 +121,13 @@
   animation: 2s ease-in-out 0s infinite normal none running bounce-right;
 }
 
-.nav-arrow-container {
-  grid-template-rows: 1fr 100px;
-
-  & > .nav-arrow-container-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  & > .down-arrow {
-    position: absolute;
-    bottom: 4vh;
-    left: calc(-0.5em + 50vw);
-  }
-  & > .right-arrow {
-    position: absolute;
-    bottom: calc(-0.5em + 50vh);
-    right: 2vw;
-  }
+.arrow-done::after {
+  content: "✓";
+  position: absolute;
+  bottom: 2vh;
+  left: calc(-0.5em + 50vw);
+  color: var(--color-accent);
+  font-size: 1.5rem;
 }
 
 /* ANIMATIONS */

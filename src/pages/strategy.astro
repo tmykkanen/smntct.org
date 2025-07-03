@@ -17,60 +17,61 @@ import NavMenu from "@components/NavMenu.astro";
   <SlydsContainer>
     <SlydGroup>
       <Slyd class="layout-base arrow-down">
-        <ul class="mb-4 text-3xl leading-tight font-bold md:mb-5 md:text-4xl">
-          <li>
+        <ul
+          class="mb-4 text-2xl leading-tight font-bold sm:text-3xl md:mb-5 md:text-4xl">
+          <li class="mb-4">
             We gather for mothly pastoral
             <button
               class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
               onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})">
-              fellowship
-            </button>.
+              fellowship.
+            </button>
           </li>
-          <li>
+          <li class="mb-4">
             We host summer pastoral
             <button
               class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
               onclick="document.querySelector('#internships').scrollIntoView({behavior: 'smooth', inline: 'center'})">
-              interns
-            </button>.
+              interns.
+            </button>
           </li>
 
-          <li>
+          <li class="mb-4">
             We provide extended pastoral
             <button
               class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
               onclick="document.querySelector('#residencies').scrollIntoView({behavior: 'smooth', inline: 'center'})">
-              residencies
-            </button>.
+              residencies.
+            </button>
           </li>
           <li>
             We coordinate periodic training
             <button
               class="text-accent hover:text-neutral hover-underline-animation cursor-pointer"
               onclick="document.querySelector('#events').scrollIntoView({behavior: 'smooth', inline: 'center'})">
-              events
-            </button>.
+              events.
+            </button>
           </li>
         </ul>
       </Slyd>
     </SlydGroup>
     <SlydGroup id="fellowship">
       <Slyd class="layout-base arrow-down">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           We gather once a month for pastoral <span class="text-accent">
             fellowship
           </span> and strategic planning.
         </h2>
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center">
           <Image
             src={fellowshipImg}
             alt={"picture of smntct gathering enjoying food together"}
             class="rounded"
             layout="constrained"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
           />
-          <p class="text-neutral text-sm sm:text-base md:text-xl">
+          <p class="text-neutral text-sm sm:text-base lg:text-xl">
             We meet the second Thursday of each month from 9am–11am. The
             location varies. We often go out to lunch after.
             <br />
@@ -86,20 +87,20 @@ import NavMenu from "@components/NavMenu.astro";
     </SlydGroup>
     <SlydGroup id="internships">
       <Slyd class="layout-base arrow-down arrow-right">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           Our summer <span class="text-accent">internship</span> is all about catching
           a Gospel Imaginary.
         </h2>
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center">
           <Image
             src={internshipImg}
             alt={"picture of intern discussion"}
             class="rounded"
             layout="constrained"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
           />
-          <p class="text-neutral text-sm sm:text-base md:text-xl">
+          <p class="text-neutral text-sm sm:text-base lg:text-xl">
             We want to give you a taste of our shared convictions and help you
             think through further ministry training and partnership in Soutnern
             MN.
@@ -110,7 +111,7 @@ import NavMenu from "@components/NavMenu.astro";
         </div>
       </Slyd>
       <Slyd class="layout-base">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           The summer internship is
         </h2>
 
@@ -151,7 +152,7 @@ import NavMenu from "@components/NavMenu.astro";
         </Accordion>
       </Slyd>
       <Slyd class="layout-base">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           Benefits of the summer internship
         </h2>
 
@@ -214,10 +215,10 @@ import NavMenu from "@components/NavMenu.astro";
     </SlydGroup>
     <SlydGroup id="residencies">
       <Slyd class="layout-base arrow-down">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           We are building extended pastoral <span class="text-accent">
-            residencies
-          </span>.
+            residencies.
+          </span>
         </h2>
         <p class="text-neutral text-sm sm:text-base md:text-xl">
           Stay in the loop by emailing us at <a
@@ -229,12 +230,12 @@ import NavMenu from "@components/NavMenu.astro";
       </Slyd>
     </SlydGroup>
     <SlydGroup id="events">
-      <Slyd class="layout-base">
-        <h2 class="mb-4 text-3xl font-bold md:mb-5 md:text-4xl">
+      <Slyd class="layout-base arrow-done">
+        <h2 class="mb-4 text-2xl font-bold sm:text-3xl md:mb-5 md:text-4xl">
           In the future, we hope to host periodic training <span
             class="text-accent">
-            events
-          </span>.
+            events.
+          </span>
         </h2>
         <p class="text-neutral text-sm sm:text-base md:text-xl">
           Stay in the loop by emailing us at <a
