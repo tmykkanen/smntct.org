@@ -9,6 +9,7 @@ const { data, fullscreen = false } = Astro.props;
 let mapHeight = fullscreen ? "100%" : "70%";
 ---
 
+<!-- TODO: Map has a bug in mobile -->
 <div
   id="hs-grayscale-leaflet"
   class="hs-leaflet z-1 m-auto h-[20rem] w-full sm:h-[24rem] md:h-[32rem]"
