@@ -10,73 +10,42 @@ if (path === "/") {
 } else {
   visible = true;
 }
+
+let isMobile;
 ---
 
-<!-- TODO: Fix active link highlighting -->
-<script>
-  console.log(location.hash);
-</script>
-
 <aside
-  x-data
+  x-data="{isMobile: false}"
+  x-resize.document="isMobile = $width < 700"
   x-show={visible}
   x-transition.delay.100ms
-  class="layout-base bg-base-100 fixed z-10 h-auto w-full items-center py-4 md:py-6 xl:flex xl:h-full xl:w-auto xl:py-0 xl:pl-9">
+  class="layout-base bg-base-100 fixed z-10 h-auto w-full items-center py-4 md:py-6 2xl:flex 2xl:h-full 2xl:w-auto 2xl:py-0 2xl:pl-9">
   <ul
-    class="text-neutral/50 text-xxs xs:text-xs flex w-full justify-around gap-4 sm:text-base md:text-xl xl:flex-col xl:text-2xl">
+    class="text-neutral/50 text-xxs xs:text-xs flex w-full justify-around gap-4 sm:text-base md:text-xl 2xl:flex-col 2xl:text-2xl">
     <li>
       <a
+        x-text="isMobile ? 'Vision' : 'Our Vision'"
         href="/#vision"
         class:list={[
           "hover:text-neutral hover-underline-animation",
           path === "/" && "text-neutral active-accent",
         ]}>
-        Our Vision
       </a>
     </li>
     <li>
       <a
+        x-text="isMobile ? 'Strategy' : 'Our Strategy'"
         href="/strategy"
         class:list={[
           "hover:text-neutral hover-underline-animation",
           (path === "/strategy/" || path === "/strategy") &&
             "text-neutral active-accent",
         ]}>
-        Our Strategy
       </a>
-      <!-- <ul class:list={["mt-6 ml-6", path === "/strategy" ? "" : "hidden"]}>
-        <li>
-          <button
-            onclick="document.querySelector('#fellowship').scrollIntoView({behavior: 'smooth', inline: 'center'})"
-            class="hover:text-neutral hover-underline-animation hover:cursor-pointer"
-            >Fellowship</button
-          >
-        </li>
-        <li>
-          <button
-            onclick="document.querySelector('#internship').scrollIntoView({behavior: 'smooth', inline: 'center'})"
-            class="hover:text-neutral hover-underline-animation hover:cursor-pointer"
-            >Internships</button
-          >
-        </li>
-        <li>
-          <button
-            onclick="document.querySelector('#residency').scrollIntoView({behavior: 'smooth', inline: 'center'})"
-            class="hover:text-neutral hover-underline-animation hover:cursor-pointer"
-            >Residencies</button
-          >
-        </li>
-        <li>
-          <button
-            onclick="document.querySelector('#events').scrollIntoView({behavior: 'smooth', inline: 'center'})"
-            class="hover:text-neutral hover-underline-animation hover:cursor-pointer"
-            >Events</button
-          >
-        </li>
-      </ul> -->
     </li>
     <li>
       <a
+        x-text="isMobile ? 'Who' : 'Who We Are'"
         href="/about"
         class:list={[
           "hover:text-neutral hover-underline-animation",
@@ -94,8 +63,8 @@ if (path === "/") {
       </a>
     </li>
     <li
-      class="text-accent hover:text-neutral hover-underline-animation font-bold uppercase xl:-order-1">
-      <a href="/">Southern MN TCT</a>
+      class="text-accent hover:text-neutral hover-underline-animation font-bold uppercase 2xl:-order-1">
+      <a x-text="isMobile ? 'SMNTCT' : 'Southern MN TCT'" href="/"></a>
     </li>
   </ul>
 </aside>
