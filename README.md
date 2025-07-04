@@ -6,7 +6,7 @@ We are a group of like-minded churches aiming to fill southern Minnesota with he
 
 ## About this site
 
-This site was by [Tyler Mykkanen](github.com/tmykkanen), pastor at [Sojourners Church](http://sojourners.church) in Albert Lea, MN, using the following tech stack:
+This site was built by [Tyler Mykkanen](github.com/tmykkanen), pastor at [Sojourners Church](http://sojourners.church) in Albert Lea, MN, using the following tech stack:
 
 - ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
