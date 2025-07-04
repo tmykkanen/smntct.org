@@ -1,5 +1,4 @@
 ---
-import NavMenu from "@components/NavMenu.astro";
 import "@styles/global.css";
 ---
 
@@ -11,7 +10,6 @@ import "@styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Southern MN TCT</title>
 
-    <!-- TODO: Leaflet JS - only on about us page? -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -24,7 +22,7 @@ import "@styles/global.css";
       crossorigin=""
     ></script>
   </head>
-  <body>
+  <body x-data>
     <slot />
   </body>
 </html>

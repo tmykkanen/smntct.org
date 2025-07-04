@@ -13,7 +13,7 @@
   --color-base-content: oklch(0.8927 0.0325 136.64);
   --color-primary: oklch(0.357 0.0547 209.73);
   --color-primary-content: oklch(0.8927 0.0325 136.64);
-  --color-secondary: oklch(0.3525 0.0587 172.72);
+  --color-secondary: oklch(0.3125 0.0587 172.72);
   --color-secondary-content: oklch(0.8927 0.0325 136.64);
   --color-accent: oklch(0.6639 0.1763 43.58);
   --color-accent-content: oklch(0.2265 0.0156 244.41);
@@ -37,51 +37,24 @@
   --noise: 0;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 @theme {
   --font-sans: Poppins, sans-serif;
+  --text-xxs: 0.6875rem; /* 10pt */
+
+  /* BREAKPOINTS */
   /* 375 - super small iphone */
   --breakpoint-xs: 24rem; /* 384px */
   /* 390 - iphone 12 - 393 - iphone 16 */
   /* 428 - iphone 12 pro max - 430 - iphone 14 pro max - 440 iphone 16 pro max */
   --breakpoint-sm: 30rem; /* 480px */
   --breakpoint-2xl: 90rem; /* 1440px */
-
-  /* md - 48rem - 768px */
-  --text-xxs: 0.6875rem; /* 10pt */
-
-  --color-secondary-darker: oklch(0.3125 0.0587 172.72);
-}
-
-/* Variant Example */
-/* TODO: Cleanup */
-.yellow {
-  background-color: yellow;
-  @variant lg {
-    background-color: red;
-  }
 }
 
 @utility layout-base {
-  --max-width: 80ch;
-  --padding: 36px;
-
-  display: grid;
-  place-content: center;
-  grid-template-columns:
-    minmax(var(--padding), 1fr)
-    min(var(--max-width), 100% - var(--padding) * 2)
-    minmax(var(--padding), 1fr);
-
-  & > * {
-    grid-column: 2/3;
-  }
-
-  & > .full-width {
-    grid-column: 1 / -1;
-  }
-}
-
-.base-layout {
   --max-width: 80ch;
   --padding: 36px;
 
@@ -149,16 +122,6 @@
 @keyframes bounce-right {
   50% {
     transform: translateX(1vmax);
-  }
-}
-
-.small-bounce-down {
-  animation: small-bounce-down 1.5s ease-in-out infinite;
-}
-
-@keyframes small-bounce-down {
-  50% {
-    transform: translateY(0.25vmax);
   }
 }
 

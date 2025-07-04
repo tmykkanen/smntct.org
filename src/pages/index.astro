@@ -11,6 +11,7 @@ import NavMenu from "@components/NavMenu.astro";
 const imgUrl = `url(${bgImg?.src})`;
 ---
 
+<!-- TODO: Add support for BlurHash image loading https://www.reddit.com/r/astrojs/comments/1dfe719/blurhash_with_astro/ -->
 <Baselayout>
   <NavMenu />
 
@@ -18,7 +19,7 @@ const imgUrl = `url(${bgImg?.src})`;
     <SlydGroup
       class="hero bg-[url:var(--img-url)]"
       style={{ "--img-url": imgUrl }}>
-      <div class="hero-overlay bg-secondary-darker opacity-85"></div>
+      <div class="hero-overlay bg-secondary opacity-85"></div>
       <Slyd class="layout-base arrow-down isolate">
         <h1 class="sr-only">Southern MN TCT</h1>
         <h2
