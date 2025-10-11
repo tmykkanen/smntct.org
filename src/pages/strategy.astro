@@ -9,6 +9,8 @@ import fellowshipImg from "@images/smntct-fellowship.jpg";
 import internshipImg from "@images/smntct-internship.jpg";
 import Accordion from "@components/Accordion.astro";
 import NavMenu from "@components/NavMenu.astro";
+
+import nextMeeting from "../data/nextMeeting.json";
 ---
 
 <Baselayout>
@@ -76,10 +78,10 @@ import NavMenu from "@components/NavMenu.astro";
             location varies. We often go out to lunch after.
             <!-- <br />
             <br />
-            Join us at our next meeting: Sept 11 at 9am at <a
-              href="https://www.redemptionrochester.com/"
+            Join us at our next meeting: {nextMeeting.date} at 9am at <a
+              href={nextMeeting.website}
               class="link">
-              Redemption City Church in Rochester
+              {nextMeeting.location}
             </a>. -->
           </p>
         </div>

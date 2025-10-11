@@ -7,9 +7,12 @@ content:
       - name: date
         label: Date
         type: date
-      - name: location
-        label: location
+      - name: church
+        label: Church
+        type: string
+      - name: city
+        label: City
         type: string
       - name: website
-        label: website
-        type: url
+        label: URL
+        type: string
