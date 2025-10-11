@@ -16,3 +16,5 @@ content:
       - name: website
         label: URL
         type: string
+      - name: text
+        type: text
