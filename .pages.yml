@@ -1,0 +1,8 @@
+content:
+  - name: meeting
+    label: Meeting
+    path: src/data/nextMeetingDate.json
+    type: file
+    fields:
+      - name: date
+      - type: string
