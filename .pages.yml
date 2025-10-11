@@ -17,4 +17,5 @@ content:
         label: URL
         type: string
       - name: text
+        label: Text
         type: text
