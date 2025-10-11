@@ -5,4 +5,4 @@ content:
     type: file
     fields:
       - name: date
-      - type: string
+      - type: date
