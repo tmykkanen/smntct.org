@@ -78,10 +78,14 @@ import nextMeeting from "../data/nextMeeting.json";
             location varies. We often go out to lunch after.
             <!-- <br />
             <br />
-            Join us at our next meeting: {nextMeeting.date} at 9am at <a
-              href={nextMeeting.website}
-              class="link">
-              {nextMeeting.location}
+            Join us at our next meeting: {
+              new Date(nextMeeting.date).toLocaleDateString("en-us", {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+              })
+            } at 9am at <a href={nextMeeting.website} class="link">
+              {nextMeeting.church} in {nextMeeting.city}
             </a>. -->
           </p>
         </div>
