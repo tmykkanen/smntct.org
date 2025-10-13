@@ -11,6 +11,16 @@ import Accordion from "@components/Accordion.astro";
 import NavMenu from "@components/NavMenu.astro";
 
 import nextMeeting from "../data/nextMeeting.json";
+
+let nextMeetingdate;
+
+if (Object.hasOwn(nextMeeting, "date") === true) {
+  nextMeetingdate = new Date(nextMeeting.date).toLocaleDateString("en-us", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
 <Baselayout>
@@ -74,19 +84,30 @@ import nextMeeting from "../data/nextMeeting.json";
             height={500}
           />
           <p class="text-neutral text-sm sm:text-base lg:text-xl">
-            We meet the second Thursday of each month from 9am–11am. The
-            location varies. We often go out to lunch after.
-            <!-- <br />
+            {nextMeeting.text || ""}
             <br />
-            Join us at our next meeting: {
-              new Date(nextMeeting.date).toLocaleDateString("en-us", {
-                weekday: "long",
-                month: "long",
-                day: "numeric",
-              })
-            } at 9am at <a href={nextMeeting.website} class="link">
-              {nextMeeting.church} in {nextMeeting.city}
-            </a>. -->
+            <br />
+
+            {
+              nextMeeting.date
+                ? "Join us at our next meeting: " +
+                  new Date(nextMeeting.date).toLocaleDateString("en-us", {
+                    weekday: "long",
+                    month: "long",
+                    day: "numeric",
+                  }) +
+                  " at "
+                : ""
+            }
+            {
+              nextMeeting.date ? (
+                <a href={nextMeeting.website} class="link">
+                  {nextMeeting.church} in {nextMeeting.city}
+                </a>
+              ) : (
+                ""
+              )
+            }
           </p>
         </div>
       </Slyd>
