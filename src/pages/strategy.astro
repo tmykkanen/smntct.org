@@ -15,7 +15,9 @@ import nextMeeting from "../data/nextMeeting.json";
 let nextMeetingdate;
 
 if (Object.hasOwn(nextMeeting, "date") === true) {
-  nextMeetingdate = new Date(nextMeeting.date).toLocaleDateString("en-us", {
+  let date = new Date(nextMeeting.date);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  nextMeetingdate = date.toLocaleDateString("en-us", {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -89,21 +91,13 @@ if (Object.hasOwn(nextMeeting, "date") === true) {
             <br />
 
             {
-              nextMeeting.date
-                ? "Join us at our next meeting: " +
-                  new Date(nextMeeting.date).toLocaleDateString("en-us", {
-                    weekday: "long",
-                    month: "long",
-                    day: "numeric",
-                  }) +
-                  " at "
-                : ""
-            }
-            {
               nextMeeting.date ? (
-                <a href={nextMeeting.website} class="link">
-                  {nextMeeting.church} in {nextMeeting.city}
-                </a>
+                <>
+                  Join us at our next meeting: {nextMeetingdate} at
+                  <a href={nextMeeting.website} class="link">
+                    {nextMeeting.church} in {nextMeeting.city}
+                  </a>
+                </>
               ) : (
                 ""
               )
