@@ -10,14 +10,12 @@ if (path === "/") {
 } else {
   visible = true;
 }
-
-let isMobile;
 ---
 
 <aside
-  x-data="{isMobile: false}"
+  x-data="{isMobile: false, isExtraWide: false}"
   x-cloak
-  x-resize.document="isMobile = $width < 700"
+  x-resize.document="isMobile = $width < 700; isExtraWide = $width > 1420"
   x-show={visible}
   x-transition.delay.100ms
   class="layout-base bg-base-100 fixed z-10 h-auto w-full items-center py-4 md:py-6 2xl:flex 2xl:h-full 2xl:w-auto 2xl:py-0 2xl:pl-9">
@@ -66,7 +64,7 @@ let isMobile;
     <li
       class="text-accent hover:text-neutral hover-underline-animation font-bold uppercase 2xl:-order-1">
       <a
-        x-text="isMobile ? 'PRAIRIE FORGE' : 'THE PRAIRIE FORGE INITIATIVE'"
+        x-text="isMobile ? 'PRAIRIE FORGE' : (isExtraWide ? 'THE PRAIRIE FORGE' : 'THE PRAIRIE FORGE INITIATIVE')"
         href="/">
       </a>
     </li>
